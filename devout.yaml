@@ -1,0 +1,6 @@
+name: fontwars
+version: 0.0.1
+description: A typographical skill game.
+type: app
+features:
+  webview: true
