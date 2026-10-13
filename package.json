@@ -1,0 +1,24 @@
+{
+  "name": "fontwars",
+  "version": "1.0.0",
+  "description": "Can you spot the differences between Arial and Helvetica? Times New Roman and Baskerville? Prove it. fontWars is a 3D web and VR game of typographical skill. Track your progress, inspect font anatomy, and battle your way to the top.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.2.0"
+  },
+  "keywords": [
+    "typography",
+    "fontwars",
+    "game",
+    "webxr",
+    "iwsdk",
+    "accessibility"
+  ],
+  "author": "",
+  "license": "MIT"
+}
