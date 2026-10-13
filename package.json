@@ -1,24 +1,20 @@
 {
-  "name": "fontwars",
+  "name": "fontwars-vr",
   "version": "1.0.0",
-  "description": "Can you spot the differences between Arial and Helvetica? Times New Roman and Baskerville? Prove it. fontWars is a 3D web and VR game of typographical skill. Track your progress, inspect font anatomy, and battle your way to the top.",
+  "description": "Spatial 3D typography game built on Meta Immersive Web SDK",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@iwsdk/core": "latest",
+    "three": "npm:super-three@0.181.0"
   },
   "devDependencies": {
     "vite": "^5.2.0"
   },
-  "keywords": [
-    "typography",
-    "fontwars",
-    "game",
-    "webxr",
-    "iwsdk",
-    "accessibility"
-  ],
-  "author": "",
-  "license": "MIT"
+  "overrides": {
+    "three": "npm:super-three@0.181.0"
+  }
 }
