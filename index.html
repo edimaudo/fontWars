@@ -1,122 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Font Wars | Spatial Typographical Skill & Battle</title>
+  <title>Font Wars | Spatial WebXR</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Skip to main content for accessibility -->
-  <a href="#main-content" class="skip-link">Skip to main content</a>
-
-  <!-- Header Navigation -->
-  <header role="banner">
-    <nav class="navbar" role="navigation" aria-label="Main Navigation">
-      <div class="logo">font<span>Wars</span></div>
-      <ul class="nav-links">
-        <li><a href="#landing" class="nav-btn active" data-view="landing">Home</a></li>
-        <li><a href="#about" class="nav-btn" data-view="about">About</a></li>
-        <li><a href="#library" class="nav-btn" data-view="library">Font Library</a></li>
-        <li><a href="#settings" class="nav-btn" data-view="settings">Settings</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <!-- Main View Container -->
-  <main id="main-content" role="main">
-    
-    <!-- 1. Landing View -->
-    <section id="landing-view" class="view active">
-      <div class="hero">
-        <h1>Can you spot the differences between Arial and Helvetica?</h1>
-        <p class="subtitle">Times New Roman and Baskerville? Prove it.</p>
-        <p class="description-text">
-          fontWars is a game of typographical skill that helps you level up. Flaunt your keen eye, obsess over your stats, and battle your way to the number one spot in immersive 3D space.
-        </p>
-        <div class="cta-container">
-          <button id="start-game-btn" class="btn primary-btn" aria-label="Start Game">Start Game</button>
-          <a href="#about" class="btn secondary-btn" data-view="about">How to Play</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- 2. About View (VR & WebXR Optimized) -->
-    <section id="about-view" class="view">
-      <div class="content-container about-content">
-        <h2>About fontWars</h2>
-        <p class="desc-lead">Can you spot the differences between Arial and Helvetica? Times New Roman and Baskerville? Prove it.</p>
-        <p class="desc-body">fontWars is a game of typographical skill built for web and immersive VR. Flaunt your keen eye, obsess over your stats, and battle your way to the number one spot.</p>
-        <p class="desc-warning"><strong>WARNING:</strong> FontWars is insanely addictive. Please use responsibly.</p>
-        
-        <ul class="feature-list">
-          <li>Track your progress as you level up and unlock higher tiers</li>
-          <li>Easily view your global ranking on the leaderboard</li>
-          <li>Slick 3D spatial and web-responsive interface</li>
-          <li>Unlock new fonts and character weights as you reach higher levels</li>
-          <li>Train as you play: Interactive 3D flash cards for improving your type-spotting acumen</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- 3. Font Library & Flashcards View -->
-    <section id="library-view" class="view">
-      <div class="content-container">
-        <h2>Font Library & Flashcards</h2>
-        <p>Examine stylistic elements and anatomical teardowns to sharpen your identification skills.</p>
-        <div id="font-library-grid" class="grid">
-          <!-- Populated dynamically via JS -->
-        </div>
-      </div>
-    </section>
-
-    <!-- 4. Game Settings View -->
-    <section id="settings-view" class="view">
-      <div class="content-container">
-        <h2>Game Settings</h2>
-        <div class="setting-group">
-          <label for="theme-toggle">Theme Mode:</label>
-          <button id="theme-toggle" class="btn secondary-btn">Switch to Dark Mode</button>
-        </div>
-        <div class="score-board-summary">
-          <h3>Your Stats</h3>
-          <p>Top Score: <span id="top-score">0</span></p>
-          <p>Best Time: <span id="top-time">0.0 min</span></p>
-        </div>
-      </div>
-    </section>
-
-    <!-- 5. Game Play View -->
-    <section id="game-view" class="view">
-      <div class="game-container">
-        <div class="game-header-bar">
-          <span id="question-counter">Question: 0/10</span>
-          <span id="game-timer">Time: 0s</span>
-        </div>
-        
-        <div class="glyph-display-card" aria-live="polite">
-          <div id="target-glyph" class="glyph">A</div>
-        </div>
-
-        <div class="answer-buttons-grid">
-          <button id="answer-btn-1" class="btn answer-btn">Font Option 1</button>
-          <button id="answer-btn-2" class="btn answer-btn">Font Option 2</button>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- Game Over Modal -->
-  <div id="game-over-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-    <div class="modal-content">
-      <h2 id="modal-title">Game Over</h2>
-      <p id="modal-score-text">Total Score: 0</p>
-      <p id="modal-time-text">Total Time: 0 minutes</p>
-      <button id="restart-game-btn" class="btn primary-btn">Play Again</button>
-    </div>
-  </div>
-
-  <script src="app.js"></script>
+  <!-- IWSDK mounts the WebXR / Three.js canvas directly here -->
+  <div id="scene-container"></div>
+  <script type="module" src="/src/main.js"></script>
 </body>
 </html>
