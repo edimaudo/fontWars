@@ -1,6 +1,5 @@
 // Complete user-provided word dataset for Font Wars spatial gameplay
-export const WORDS = [
- "aardvark", "aardwolf",
+export const WORDS = ["aardvark", "aardwolf",
             "aaron", "aback", "abacus", "abaft", "abalone",
             "abandon", "abandoned",
             "abandonment",
