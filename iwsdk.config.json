@@ -1,9 +1,0 @@
-{
-  "appName": "fontWars",
-  "version": "1.0.0",
-  "scene": "default",
-  "xr": {
-    "requiredFeatures": ["hand-tracking", "hit-test"],
-    "optionalFeatures": ["spatial-audio"]
-  }
-}
