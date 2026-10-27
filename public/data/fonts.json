@@ -1,0 +1,2404 @@
+{
+  "fonts": [
+    {
+      "id": "serif_1",
+      "name": "Alegreya",
+      "category": "Serif",
+      "anatomicalTip": "Look for small finishing strokes at the ends of the main letterforms; compare the feet on the stems."
+    },
+    {
+      "id": "serif_2",
+      "name": "Aleo",
+      "category": "Serif",
+      "anatomicalTip": "Inspect the terminals: the strokes end in visible serifs rather than plain, unadorned cuts."
+    },
+    {
+      "id": "serif_3",
+      "name": "Alice",
+      "category": "Serif",
+      "anatomicalTip": "Notice how the small finishing strokes anchor letters such as I, T, E, and n."
+    },
+    {
+      "id": "serif_4",
+      "name": "Amiri",
+      "category": "Serif",
+      "anatomicalTip": "Look at the contrast between thick and thin strokes and the finishing feet on vertical stems."
+    },
+    {
+      "id": "serif_5",
+      "name": "Andada Pro",
+      "category": "Serif",
+      "anatomicalTip": "Examine letter terminals and bracketed joins; serif details remain visible even at smaller sizes."
+    },
+    {
+      "id": "serif_6",
+      "name": "Arbutus Slab",
+      "category": "Serif",
+      "anatomicalTip": "Check the ends of the strokes for short crossbars or feet, especially on capitals and lowercase stems."
+    },
+    {
+      "id": "serif_7",
+      "name": "Arvo",
+      "category": "Serif",
+      "anatomicalTip": "Look for small finishing strokes at the ends of the main letterforms; compare the feet on the stems."
+    },
+    {
+      "id": "serif_8",
+      "name": "Asar",
+      "category": "Serif",
+      "anatomicalTip": "Inspect the terminals: the strokes end in visible serifs rather than plain, unadorned cuts."
+    },
+    {
+      "id": "serif_9",
+      "name": "Averia Serif Libre",
+      "category": "Serif",
+      "anatomicalTip": "Notice how the small finishing strokes anchor letters such as I, T, E, and n."
+    },
+    {
+      "id": "serif_10",
+      "name": "Besley",
+      "category": "Serif",
+      "anatomicalTip": "Look at the contrast between thick and thin strokes and the finishing feet on vertical stems."
+    },
+    {
+      "id": "serif_11",
+      "name": "BioRhyme",
+      "category": "Serif",
+      "anatomicalTip": "Examine letter terminals and bracketed joins; serif details remain visible even at smaller sizes."
+    },
+    {
+      "id": "serif_12",
+      "name": "Bitter",
+      "category": "Serif",
+      "anatomicalTip": "Check the ends of the strokes for short crossbars or feet, especially on capitals and lowercase stems."
+    },
+    {
+      "id": "serif_13",
+      "name": "Bodoni Moda",
+      "category": "Serif",
+      "anatomicalTip": "Look for small finishing strokes at the ends of the main letterforms; compare the feet on the stems."
+    },
+    {
+      "id": "serif_14",
+      "name": "Brawler",
+      "category": "Serif",
+      "anatomicalTip": "Inspect the terminals: the strokes end in visible serifs rather than plain, unadorned cuts."
+    },
+    {
+      "id": "serif_15",
+      "name": "Bree Serif",
+      "category": "Serif",
+      "anatomicalTip": "Notice how the small finishing strokes anchor letters such as I, T, E, and n."
+    },
+    {
+      "id": "serif_16",
+      "name": "Buenard",
+      "category": "Serif",
+      "anatomicalTip": "Look at the contrast between thick and thin strokes and the finishing feet on vertical stems."
+    },
+    {
+      "id": "serif_17",
+      "name": "Brygada 1918",
+      "category": "Serif",
+      "anatomicalTip": "Examine letter terminals and bracketed joins; serif details remain visible even at smaller sizes."
+    },
+    {
+      "id": "serif_18",
+      "name": "Caladea",
+      "category": "Serif",
+      "anatomicalTip": "Check the ends of the strokes for short crossbars or feet, especially on capitals and lowercase stems."
+    },
+    {
+      "id": "serif_19",
+      "name": "Cardo",
+      "category": "Serif",
+      "anatomicalTip": "Look for small finishing strokes at the ends of the main letterforms; compare the feet on the stems."
+    },
+    {
+      "id": "serif_20",
+      "name": "Castoro",
+      "category": "Serif",
+      "anatomicalTip": "Inspect the terminals: the strokes end in visible serifs rather than plain, unadorned cuts."
+    },
+    {
+      "id": "serif_21",
+      "name": "Cormorant",
+      "category": "Serif",
+      "anatomicalTip": "Notice how the small finishing strokes anchor letters such as I, T, E, and n."
+    },
+    {
+      "id": "serif_22",
+      "name": "Cormorant Garamond",
+      "category": "Serif",
+      "anatomicalTip": "Look at the contrast between thick and thin strokes and the finishing feet on vertical stems."
+    },
+    {
+      "id": "serif_23",
+      "name": "Cormorant Infant",
+      "category": "Serif",
+      "anatomicalTip": "Examine letter terminals and bracketed joins; serif details remain visible even at smaller sizes."
+    },
+    {
+      "id": "serif_24",
+      "name": "Cormorant SC",
+      "category": "Serif",
+      "anatomicalTip": "Check the ends of the strokes for short crossbars or feet, especially on capitals and lowercase stems."
+    },
+    {
+      "id": "serif_25",
+      "name": "Cormorant Unicase",
+      "category": "Serif",
+      "anatomicalTip": "Look for small finishing strokes at the ends of the main letterforms; compare the feet on the stems."
+    },
+    {
+      "id": "serif_26",
+      "name": "Crete Round",
+      "category": "Serif",
+      "anatomicalTip": "Inspect the terminals: the strokes end in visible serifs rather than plain, unadorned cuts."
+    },
+    {
+      "id": "serif_27",
+      "name": "Crimson Pro",
+      "category": "Serif",
+      "anatomicalTip": "Notice how the small finishing strokes anchor letters such as I, T, E, and n."
+    },
+    {
+      "id": "serif_28",
+      "name": "Crimson Text",
+      "category": "Serif",
+      "anatomicalTip": "Look at the contrast between thick and thin strokes and the finishing feet on vertical stems."
+    },
+    {
+      "id": "serif_29",
+      "name": "DM Serif Display",
+      "category": "Serif",
+      "anatomicalTip": "Examine letter terminals and bracketed joins; serif details remain visible even at smaller sizes."
+    },
+    {
+      "id": "serif_30",
+      "name": "DM Serif Text",
+      "category": "Serif",
+      "anatomicalTip": "Check the ends of the strokes for short crossbars or feet, especially on capitals and lowercase stems."
+    },
+    {
+      "id": "serif_31",
+      "name": "Domine",
+      "category": "Serif",
+      "anatomicalTip": "Look for small finishing strokes at the ends of the main letterforms; compare the feet on the stems."
+    },
+    {
+      "id": "serif_32",
+      "name": "EB Garamond",
+      "category": "Serif",
+      "anatomicalTip": "Inspect the terminals: the strokes end in visible serifs rather than plain, unadorned cuts."
+    },
+    {
+      "id": "serif_33",
+      "name": "Eczar",
+      "category": "Serif",
+      "anatomicalTip": "Notice how the small finishing strokes anchor letters such as I, T, E, and n."
+    },
+    {
+      "id": "serif_34",
+      "name": "Enriqueta",
+      "category": "Serif",
+      "anatomicalTip": "Look at the contrast between thick and thin strokes and the finishing feet on vertical stems."
+    },
+    {
+      "id": "serif_35",
+      "name": "Esteban",
+      "category": "Serif",
+      "anatomicalTip": "Examine letter terminals and bracketed joins; serif details remain visible even at smaller sizes."
+    },
+    {
+      "id": "serif_36",
+      "name": "Fauna One",
+      "category": "Serif",
+      "anatomicalTip": "Check the ends of the strokes for short crossbars or feet, especially on capitals and lowercase stems."
+    },
+    {
+      "id": "serif_37",
+      "name": "Fanwood Text",
+      "category": "Serif",
+      "anatomicalTip": "Look for small finishing strokes at the ends of the main letterforms; compare the feet on the stems."
+    },
+    {
+      "id": "serif_38",
+      "name": "Fenix",
+      "category": "Serif",
+      "anatomicalTip": "Inspect the terminals: the strokes end in visible serifs rather than plain, unadorned cuts."
+    },
+    {
+      "id": "serif_39",
+      "name": "Forum",
+      "category": "Serif",
+      "anatomicalTip": "Notice how the small finishing strokes anchor letters such as I, T, E, and n."
+    },
+    {
+      "id": "serif_40",
+      "name": "Fraunces",
+      "category": "Serif",
+      "anatomicalTip": "Look at the contrast between thick and thin strokes and the finishing feet on vertical stems."
+    },
+    {
+      "id": "serif_41",
+      "name": "Frank Ruhl Libre",
+      "category": "Serif",
+      "anatomicalTip": "Examine letter terminals and bracketed joins; serif details remain visible even at smaller sizes."
+    },
+    {
+      "id": "serif_42",
+      "name": "GFS Didot",
+      "category": "Serif",
+      "anatomicalTip": "Check the ends of the strokes for short crossbars or feet, especially on capitals and lowercase stems."
+    },
+    {
+      "id": "serif_43",
+      "name": "Gentium Book Plus",
+      "category": "Serif",
+      "anatomicalTip": "Look for small finishing strokes at the ends of the main letterforms; compare the feet on the stems."
+    },
+    {
+      "id": "serif_44",
+      "name": "Glegoo",
+      "category": "Serif",
+      "anatomicalTip": "Inspect the terminals: the strokes end in visible serifs rather than plain, unadorned cuts."
+    },
+    {
+      "id": "serif_45",
+      "name": "Gloock",
+      "category": "Serif",
+      "anatomicalTip": "Notice how the small finishing strokes anchor letters such as I, T, E, and n."
+    },
+    {
+      "id": "serif_46",
+      "name": "Grenze",
+      "category": "Serif",
+      "anatomicalTip": "Look at the contrast between thick and thin strokes and the finishing feet on vertical stems."
+    },
+    {
+      "id": "serif_47",
+      "name": "Hahmlet",
+      "category": "Serif",
+      "anatomicalTip": "Examine letter terminals and bracketed joins; serif details remain visible even at smaller sizes."
+    },
+    {
+      "id": "serif_48",
+      "name": "Headland One",
+      "category": "Serif",
+      "anatomicalTip": "Check the ends of the strokes for short crossbars or feet, especially on capitals and lowercase stems."
+    },
+    {
+      "id": "serif_49",
+      "name": "Hepta Slab",
+      "category": "Serif",
+      "anatomicalTip": "Look for small finishing strokes at the ends of the main letterforms; compare the feet on the stems."
+    },
+    {
+      "id": "serif_50",
+      "name": "IBM Plex Serif",
+      "category": "Serif",
+      "anatomicalTip": "Inspect the terminals: the strokes end in visible serifs rather than plain, unadorned cuts."
+    },
+    {
+      "id": "serif_51",
+      "name": "Ibarra Real Nova",
+      "category": "Serif",
+      "anatomicalTip": "Notice how the small finishing strokes anchor letters such as I, T, E, and n."
+    },
+    {
+      "id": "serif_52",
+      "name": "Imbue",
+      "category": "Serif",
+      "anatomicalTip": "Look at the contrast between thick and thin strokes and the finishing feet on vertical stems."
+    },
+    {
+      "id": "serif_53",
+      "name": "Inknut Antiqua",
+      "category": "Serif",
+      "anatomicalTip": "Examine letter terminals and bracketed joins; serif details remain visible even at smaller sizes."
+    },
+    {
+      "id": "serif_54",
+      "name": "Instrument Serif",
+      "category": "Serif",
+      "anatomicalTip": "Check the ends of the strokes for short crossbars or feet, especially on capitals and lowercase stems."
+    },
+    {
+      "id": "serif_55",
+      "name": "Josefin Slab",
+      "category": "Serif",
+      "anatomicalTip": "Look for small finishing strokes at the ends of the main letterforms; compare the feet on the stems."
+    },
+    {
+      "id": "serif_56",
+      "name": "Judson",
+      "category": "Serif",
+      "anatomicalTip": "Inspect the terminals: the strokes end in visible serifs rather than plain, unadorned cuts."
+    },
+    {
+      "id": "serif_57",
+      "name": "Kaisei Decol",
+      "category": "Serif",
+      "anatomicalTip": "Notice how the small finishing strokes anchor letters such as I, T, E, and n."
+    },
+    {
+      "id": "serif_58",
+      "name": "Kaisei HarunoUmi",
+      "category": "Serif",
+      "anatomicalTip": "Look at the contrast between thick and thin strokes and the finishing feet on vertical stems."
+    },
+    {
+      "id": "serif_59",
+      "name": "Kaisei Opti",
+      "category": "Serif",
+      "anatomicalTip": "Examine letter terminals and bracketed joins; serif details remain visible even at smaller sizes."
+    },
+    {
+      "id": "serif_60",
+      "name": "Kaisei Tokumin",
+      "category": "Serif",
+      "anatomicalTip": "Check the ends of the strokes for short crossbars or feet, especially on capitals and lowercase stems."
+    },
+    {
+      "id": "serif_61",
+      "name": "Karma",
+      "category": "Serif",
+      "anatomicalTip": "Look for small finishing strokes at the ends of the main letterforms; compare the feet on the stems."
+    },
+    {
+      "id": "serif_62",
+      "name": "Kotta One",
+      "category": "Serif",
+      "anatomicalTip": "Inspect the terminals: the strokes end in visible serifs rather than plain, unadorned cuts."
+    },
+    {
+      "id": "serif_63",
+      "name": "Kreon",
+      "category": "Serif",
+      "anatomicalTip": "Notice how the small finishing strokes anchor letters such as I, T, E, and n."
+    },
+    {
+      "id": "serif_64",
+      "name": "Kurale",
+      "category": "Serif",
+      "anatomicalTip": "Look at the contrast between thick and thin strokes and the finishing feet on vertical stems."
+    },
+    {
+      "id": "serif_65",
+      "name": "Ledger",
+      "category": "Serif",
+      "anatomicalTip": "Examine letter terminals and bracketed joins; serif details remain visible even at smaller sizes."
+    },
+    {
+      "id": "serif_66",
+      "name": "Libre Baskerville",
+      "category": "Serif",
+      "anatomicalTip": "Check the ends of the strokes for short crossbars or feet, especially on capitals and lowercase stems."
+    },
+    {
+      "id": "serif_67",
+      "name": "Libre Bodoni",
+      "category": "Serif",
+      "anatomicalTip": "Look for small finishing strokes at the ends of the main letterforms; compare the feet on the stems."
+    },
+    {
+      "id": "serif_68",
+      "name": "Literata",
+      "category": "Serif",
+      "anatomicalTip": "Inspect the terminals: the strokes end in visible serifs rather than plain, unadorned cuts."
+    },
+    {
+      "id": "serif_69",
+      "name": "Lora",
+      "category": "Serif",
+      "anatomicalTip": "Notice how the small finishing strokes anchor letters such as I, T, E, and n."
+    },
+    {
+      "id": "serif_70",
+      "name": "Lustria",
+      "category": "Serif",
+      "anatomicalTip": "Look at the contrast between thick and thin strokes and the finishing feet on vertical stems."
+    },
+    {
+      "id": "serif_71",
+      "name": "Maitree",
+      "category": "Serif",
+      "anatomicalTip": "Examine letter terminals and bracketed joins; serif details remain visible even at smaller sizes."
+    },
+    {
+      "id": "serif_72",
+      "name": "Marcellus",
+      "category": "Serif",
+      "anatomicalTip": "Check the ends of the strokes for short crossbars or feet, especially on capitals and lowercase stems."
+    },
+    {
+      "id": "serif_73",
+      "name": "Markazi Text",
+      "category": "Serif",
+      "anatomicalTip": "Look for small finishing strokes at the ends of the main letterforms; compare the feet on the stems."
+    },
+    {
+      "id": "serif_74",
+      "name": "Martel",
+      "category": "Serif",
+      "anatomicalTip": "Inspect the terminals: the strokes end in visible serifs rather than plain, unadorned cuts."
+    },
+    {
+      "id": "serif_75",
+      "name": "Mate",
+      "category": "Serif",
+      "anatomicalTip": "Notice how the small finishing strokes anchor letters such as I, T, E, and n."
+    },
+    {
+      "id": "serif_76",
+      "name": "Mate SC",
+      "category": "Serif",
+      "anatomicalTip": "Look at the contrast between thick and thin strokes and the finishing feet on vertical stems."
+    },
+    {
+      "id": "serif_77",
+      "name": "Merriweather",
+      "category": "Serif",
+      "anatomicalTip": "Examine letter terminals and bracketed joins; serif details remain visible even at smaller sizes."
+    },
+    {
+      "id": "serif_78",
+      "name": "Newsreader",
+      "category": "Serif",
+      "anatomicalTip": "Check the ends of the strokes for short crossbars or feet, especially on capitals and lowercase stems."
+    },
+    {
+      "id": "serif_79",
+      "name": "Noto Serif",
+      "category": "Serif",
+      "anatomicalTip": "Look for small finishing strokes at the ends of the main letterforms; compare the feet on the stems."
+    },
+    {
+      "id": "serif_80",
+      "name": "Noto Serif Display",
+      "category": "Serif",
+      "anatomicalTip": "Inspect the terminals: the strokes end in visible serifs rather than plain, unadorned cuts."
+    },
+    {
+      "id": "serif_81",
+      "name": "Noto Serif JP",
+      "category": "Serif",
+      "anatomicalTip": "Notice how the small finishing strokes anchor letters such as I, T, E, and n."
+    },
+    {
+      "id": "serif_82",
+      "name": "Noto Serif KR",
+      "category": "Serif",
+      "anatomicalTip": "Look at the contrast between thick and thin strokes and the finishing feet on vertical stems."
+    },
+    {
+      "id": "serif_83",
+      "name": "Noto Serif SC",
+      "category": "Serif",
+      "anatomicalTip": "Examine letter terminals and bracketed joins; serif details remain visible even at smaller sizes."
+    },
+    {
+      "id": "serif_84",
+      "name": "Noto Serif TC",
+      "category": "Serif",
+      "anatomicalTip": "Check the ends of the strokes for short crossbars or feet, especially on capitals and lowercase stems."
+    },
+    {
+      "id": "serif_85",
+      "name": "Old Standard TT",
+      "category": "Serif",
+      "anatomicalTip": "Look for small finishing strokes at the ends of the main letterforms; compare the feet on the stems."
+    },
+    {
+      "id": "serif_86",
+      "name": "Oranienbaum",
+      "category": "Serif",
+      "anatomicalTip": "Inspect the terminals: the strokes end in visible serifs rather than plain, unadorned cuts."
+    },
+    {
+      "id": "serif_87",
+      "name": "Ovo",
+      "category": "Serif",
+      "anatomicalTip": "Notice how the small finishing strokes anchor letters such as I, T, E, and n."
+    },
+    {
+      "id": "serif_88",
+      "name": "Petrona",
+      "category": "Serif",
+      "anatomicalTip": "Look at the contrast between thick and thin strokes and the finishing feet on vertical stems."
+    },
+    {
+      "id": "serif_89",
+      "name": "Piazzolla",
+      "category": "Serif",
+      "anatomicalTip": "Examine letter terminals and bracketed joins; serif details remain visible even at smaller sizes."
+    },
+    {
+      "id": "serif_90",
+      "name": "Playfair Display",
+      "category": "Serif",
+      "anatomicalTip": "Check the ends of the strokes for short crossbars or feet, especially on capitals and lowercase stems."
+    },
+    {
+      "id": "serif_91",
+      "name": "Playfair Display SC",
+      "category": "Serif",
+      "anatomicalTip": "Look for small finishing strokes at the ends of the main letterforms; compare the feet on the stems."
+    },
+    {
+      "id": "serif_92",
+      "name": "Podkova",
+      "category": "Serif",
+      "anatomicalTip": "Inspect the terminals: the strokes end in visible serifs rather than plain, unadorned cuts."
+    },
+    {
+      "id": "serif_93",
+      "name": "Poltawski Nowy",
+      "category": "Serif",
+      "anatomicalTip": "Notice how the small finishing strokes anchor letters such as I, T, E, and n."
+    },
+    {
+      "id": "serif_94",
+      "name": "Prata",
+      "category": "Serif",
+      "anatomicalTip": "Look at the contrast between thick and thin strokes and the finishing feet on vertical stems."
+    },
+    {
+      "id": "serif_95",
+      "name": "Quando",
+      "category": "Serif",
+      "anatomicalTip": "Examine letter terminals and bracketed joins; serif details remain visible even at smaller sizes."
+    },
+    {
+      "id": "serif_96",
+      "name": "Quattrocento",
+      "category": "Serif",
+      "anatomicalTip": "Check the ends of the strokes for short crossbars or feet, especially on capitals and lowercase stems."
+    },
+    {
+      "id": "serif_97",
+      "name": "Radley",
+      "category": "Serif",
+      "anatomicalTip": "Look for small finishing strokes at the ends of the main letterforms; compare the feet on the stems."
+    },
+    {
+      "id": "serif_98",
+      "name": "Rakkas",
+      "category": "Serif",
+      "anatomicalTip": "Inspect the terminals: the strokes end in visible serifs rather than plain, unadorned cuts."
+    },
+    {
+      "id": "serif_99",
+      "name": "Ramaraja",
+      "category": "Serif",
+      "anatomicalTip": "Notice how the small finishing strokes anchor letters such as I, T, E, and n."
+    },
+    {
+      "id": "serif_100",
+      "name": "Rasa",
+      "category": "Serif",
+      "anatomicalTip": "Look at the contrast between thick and thin strokes and the finishing feet on vertical stems."
+    },
+    {
+      "id": "serif_101",
+      "name": "Rhodium Libre",
+      "category": "Serif",
+      "anatomicalTip": "Examine letter terminals and bracketed joins; serif details remain visible even at smaller sizes."
+    },
+    {
+      "id": "serif_102",
+      "name": "Roboto Slab",
+      "category": "Serif",
+      "anatomicalTip": "Check the ends of the strokes for short crossbars or feet, especially on capitals and lowercase stems."
+    },
+    {
+      "id": "serif_103",
+      "name": "Rokkitt",
+      "category": "Serif",
+      "anatomicalTip": "Look for small finishing strokes at the ends of the main letterforms; compare the feet on the stems."
+    },
+    {
+      "id": "serif_104",
+      "name": "Rosarivo",
+      "category": "Serif",
+      "anatomicalTip": "Inspect the terminals: the strokes end in visible serifs rather than plain, unadorned cuts."
+    },
+    {
+      "id": "serif_105",
+      "name": "Rozha One",
+      "category": "Serif",
+      "anatomicalTip": "Notice how the small finishing strokes anchor letters such as I, T, E, and n."
+    },
+    {
+      "id": "serif_106",
+      "name": "Rufina",
+      "category": "Serif",
+      "anatomicalTip": "Look at the contrast between thick and thin strokes and the finishing feet on vertical stems."
+    },
+    {
+      "id": "serif_107",
+      "name": "Sahitya",
+      "category": "Serif",
+      "anatomicalTip": "Examine letter terminals and bracketed joins; serif details remain visible even at smaller sizes."
+    },
+    {
+      "id": "serif_108",
+      "name": "Sanchez",
+      "category": "Serif",
+      "anatomicalTip": "Check the ends of the strokes for short crossbars or feet, especially on capitals and lowercase stems."
+    },
+    {
+      "id": "serif_109",
+      "name": "Sawarabi Mincho",
+      "category": "Serif",
+      "anatomicalTip": "Look for small finishing strokes at the ends of the main letterforms; compare the feet on the stems."
+    },
+    {
+      "id": "serif_110",
+      "name": "Scope One",
+      "category": "Serif",
+      "anatomicalTip": "Inspect the terminals: the strokes end in visible serifs rather than plain, unadorned cuts."
+    },
+    {
+      "id": "serif_111",
+      "name": "Shippori Mincho",
+      "category": "Serif",
+      "anatomicalTip": "Notice how the small finishing strokes anchor letters such as I, T, E, and n."
+    },
+    {
+      "id": "serif_112",
+      "name": "Shippori Mincho B1",
+      "category": "Serif",
+      "anatomicalTip": "Look at the contrast between thick and thin strokes and the finishing feet on vertical stems."
+    },
+    {
+      "id": "serif_113",
+      "name": "Slabo 13px",
+      "category": "Serif",
+      "anatomicalTip": "Examine letter terminals and bracketed joins; serif details remain visible even at smaller sizes."
+    },
+    {
+      "id": "serif_114",
+      "name": "Slabo 27px",
+      "category": "Serif",
+      "anatomicalTip": "Check the ends of the strokes for short crossbars or feet, especially on capitals and lowercase stems."
+    },
+    {
+      "id": "serif_115",
+      "name": "Source Serif 4",
+      "category": "Serif",
+      "anatomicalTip": "Look for small finishing strokes at the ends of the main letterforms; compare the feet on the stems."
+    },
+    {
+      "id": "serif_116",
+      "name": "Spectral",
+      "category": "Serif",
+      "anatomicalTip": "Inspect the terminals: the strokes end in visible serifs rather than plain, unadorned cuts."
+    },
+    {
+      "id": "serif_117",
+      "name": "Stoke",
+      "category": "Serif",
+      "anatomicalTip": "Notice how the small finishing strokes anchor letters such as I, T, E, and n."
+    },
+    {
+      "id": "serif_118",
+      "name": "Suranna",
+      "category": "Serif",
+      "anatomicalTip": "Look at the contrast between thick and thin strokes and the finishing feet on vertical stems."
+    },
+    {
+      "id": "serif_119",
+      "name": "Taviraj",
+      "category": "Serif",
+      "anatomicalTip": "Examine letter terminals and bracketed joins; serif details remain visible even at smaller sizes."
+    },
+    {
+      "id": "serif_120",
+      "name": "Tienne",
+      "category": "Serif",
+      "anatomicalTip": "Check the ends of the strokes for short crossbars or feet, especially on capitals and lowercase stems."
+    },
+    {
+      "id": "serif_121",
+      "name": "Trirong",
+      "category": "Serif",
+      "anatomicalTip": "Look for small finishing strokes at the ends of the main letterforms; compare the feet on the stems."
+    },
+    {
+      "id": "serif_122",
+      "name": "Unna",
+      "category": "Serif",
+      "anatomicalTip": "Inspect the terminals: the strokes end in visible serifs rather than plain, unadorned cuts."
+    },
+    {
+      "id": "serif_123",
+      "name": "Vidaloka",
+      "category": "Serif",
+      "anatomicalTip": "Notice how the small finishing strokes anchor letters such as I, T, E, and n."
+    },
+    {
+      "id": "serif_124",
+      "name": "Vollkorn",
+      "category": "Serif",
+      "anatomicalTip": "Look at the contrast between thick and thin strokes and the finishing feet on vertical stems."
+    },
+    {
+      "id": "serif_125",
+      "name": "Vollkorn SC",
+      "category": "Serif",
+      "anatomicalTip": "Examine letter terminals and bracketed joins; serif details remain visible even at smaller sizes."
+    },
+    {
+      "id": "serif_126",
+      "name": "Young Serif",
+      "category": "Serif",
+      "anatomicalTip": "Check the ends of the strokes for short crossbars or feet, especially on capitals and lowercase stems."
+    },
+    {
+      "id": "serif_127",
+      "name": "Zilla Slab",
+      "category": "Serif",
+      "anatomicalTip": "Look for small finishing strokes at the ends of the main letterforms; compare the feet on the stems."
+    },
+    {
+      "id": "serif_128",
+      "name": "Abril Fatface",
+      "category": "Serif",
+      "anatomicalTip": "Inspect the terminals: the strokes end in visible serifs rather than plain, unadorned cuts."
+    },
+    {
+      "id": "serif_129",
+      "name": "Adamina",
+      "category": "Serif",
+      "anatomicalTip": "Notice how the small finishing strokes anchor letters such as I, T, E, and n."
+    },
+    {
+      "id": "serif_130",
+      "name": "Alike",
+      "category": "Serif",
+      "anatomicalTip": "Look at the contrast between thick and thin strokes and the finishing feet on vertical stems."
+    },
+    {
+      "id": "serif_131",
+      "name": "Alike Angular",
+      "category": "Serif",
+      "anatomicalTip": "Examine letter terminals and bracketed joins; serif details remain visible even at smaller sizes."
+    },
+    {
+      "id": "serif_132",
+      "name": "Amethysta",
+      "category": "Serif",
+      "anatomicalTip": "Check the ends of the strokes for short crossbars or feet, especially on capitals and lowercase stems."
+    },
+    {
+      "id": "serif_133",
+      "name": "Antic Slab",
+      "category": "Serif",
+      "anatomicalTip": "Look for small finishing strokes at the ends of the main letterforms; compare the feet on the stems."
+    },
+    {
+      "id": "serif_134",
+      "name": "Arapey",
+      "category": "Serif",
+      "anatomicalTip": "Inspect the terminals: the strokes end in visible serifs rather than plain, unadorned cuts."
+    },
+    {
+      "id": "serif_135",
+      "name": "Artifika",
+      "category": "Serif",
+      "anatomicalTip": "Notice how the small finishing strokes anchor letters such as I, T, E, and n."
+    },
+    {
+      "id": "serif_136",
+      "name": "Belgrano",
+      "category": "Serif",
+      "anatomicalTip": "Look at the contrast between thick and thin strokes and the finishing feet on vertical stems."
+    },
+    {
+      "id": "serif_137",
+      "name": "Bellefair",
+      "category": "Serif",
+      "anatomicalTip": "Examine letter terminals and bracketed joins; serif details remain visible even at smaller sizes."
+    },
+    {
+      "id": "serif_138",
+      "name": "Bentham",
+      "category": "Serif",
+      "anatomicalTip": "Check the ends of the strokes for short crossbars or feet, especially on capitals and lowercase stems."
+    },
+    {
+      "id": "serif_139",
+      "name": "Cantata One",
+      "category": "Serif",
+      "anatomicalTip": "Look for small finishing strokes at the ends of the main letterforms; compare the feet on the stems."
+    },
+    {
+      "id": "serif_140",
+      "name": "Caudex",
+      "category": "Serif",
+      "anatomicalTip": "Inspect the terminals: the strokes end in visible serifs rather than plain, unadorned cuts."
+    },
+    {
+      "id": "serif_141",
+      "name": "Chonburi",
+      "category": "Serif",
+      "anatomicalTip": "Notice how the small finishing strokes anchor letters such as I, T, E, and n."
+    },
+    {
+      "id": "serif_142",
+      "name": "Cinzel",
+      "category": "Serif",
+      "anatomicalTip": "Look at the contrast between thick and thin strokes and the finishing feet on vertical stems."
+    },
+    {
+      "id": "serif_143",
+      "name": "Cinzel Decorative",
+      "category": "Serif",
+      "anatomicalTip": "Examine letter terminals and bracketed joins; serif details remain visible even at smaller sizes."
+    },
+    {
+      "id": "serif_144",
+      "name": "Copse",
+      "category": "Serif",
+      "anatomicalTip": "Check the ends of the strokes for short crossbars or feet, especially on capitals and lowercase stems."
+    },
+    {
+      "id": "serif_145",
+      "name": "Cutive",
+      "category": "Serif",
+      "anatomicalTip": "Look for small finishing strokes at the ends of the main letterforms; compare the feet on the stems."
+    },
+    {
+      "id": "serif_146",
+      "name": "Cutive Mono",
+      "category": "Serif",
+      "anatomicalTip": "Inspect the terminals: the strokes end in visible serifs rather than plain, unadorned cuts."
+    },
+    {
+      "id": "serif_147",
+      "name": "Della Respira",
+      "category": "Serif",
+      "anatomicalTip": "Notice how the small finishing strokes anchor letters such as I, T, E, and n."
+    },
+    {
+      "id": "serif_148",
+      "name": "Donegal One",
+      "category": "Serif",
+      "anatomicalTip": "Look at the contrast between thick and thin strokes and the finishing feet on vertical stems."
+    },
+    {
+      "id": "serif_149",
+      "name": "Eagle Lake",
+      "category": "Serif",
+      "anatomicalTip": "Examine letter terminals and bracketed joins; serif details remain visible even at smaller sizes."
+    },
+    {
+      "id": "serif_150",
+      "name": "Elsie",
+      "category": "Serif",
+      "anatomicalTip": "Check the ends of the strokes for short crossbars or feet, especially on capitals and lowercase stems."
+    },
+    {
+      "id": "serif_151",
+      "name": "Elsie Swash Caps",
+      "category": "Serif",
+      "anatomicalTip": "Look for small finishing strokes at the ends of the main letterforms; compare the feet on the stems."
+    },
+    {
+      "id": "serif_152",
+      "name": "Fjord One",
+      "category": "Serif",
+      "anatomicalTip": "Inspect the terminals: the strokes end in visible serifs rather than plain, unadorned cuts."
+    },
+    {
+      "id": "serif_153",
+      "name": "Goudy Bookletter 1911",
+      "category": "Serif",
+      "anatomicalTip": "Notice how the small finishing strokes anchor letters such as I, T, E, and n."
+    },
+    {
+      "id": "serif_154",
+      "name": "IM Fell DW Pica",
+      "category": "Serif",
+      "anatomicalTip": "Look at the contrast between thick and thin strokes and the finishing feet on vertical stems."
+    },
+    {
+      "id": "serif_155",
+      "name": "IM Fell English",
+      "category": "Serif",
+      "anatomicalTip": "Examine letter terminals and bracketed joins; serif details remain visible even at smaller sizes."
+    },
+    {
+      "id": "serif_156",
+      "name": "IM Fell French Canon",
+      "category": "Serif",
+      "anatomicalTip": "Check the ends of the strokes for short crossbars or feet, especially on capitals and lowercase stems."
+    },
+    {
+      "id": "serif_157",
+      "name": "IM Fell Great Primer",
+      "category": "Serif",
+      "anatomicalTip": "Look for small finishing strokes at the ends of the main letterforms; compare the feet on the stems."
+    },
+    {
+      "id": "serif_158",
+      "name": "Lancelot",
+      "category": "Serif",
+      "anatomicalTip": "Inspect the terminals: the strokes end in visible serifs rather than plain, unadorned cuts."
+    },
+    {
+      "id": "serif_159",
+      "name": "Linden Hill",
+      "category": "Serif",
+      "anatomicalTip": "Notice how the small finishing strokes anchor letters such as I, T, E, and n."
+    },
+    {
+      "id": "serif_160",
+      "name": "Manuale",
+      "category": "Serif",
+      "anatomicalTip": "Look at the contrast between thick and thin strokes and the finishing feet on vertical stems."
+    },
+    {
+      "id": "serif_161",
+      "name": "Montaga",
+      "category": "Serif",
+      "anatomicalTip": "Examine letter terminals and bracketed joins; serif details remain visible even at smaller sizes."
+    },
+    {
+      "id": "serif_162",
+      "name": "Nixie One",
+      "category": "Serif",
+      "anatomicalTip": "Check the ends of the strokes for short crossbars or feet, especially on capitals and lowercase stems."
+    },
+    {
+      "id": "serif_163",
+      "name": "Noticia Text",
+      "category": "Serif",
+      "anatomicalTip": "Look for small finishing strokes at the ends of the main letterforms; compare the feet on the stems."
+    },
+    {
+      "id": "serif_164",
+      "name": "Port Lligat Slab",
+      "category": "Serif",
+      "anatomicalTip": "Inspect the terminals: the strokes end in visible serifs rather than plain, unadorned cuts."
+    },
+    {
+      "id": "serif_165",
+      "name": "Prociono",
+      "category": "Serif",
+      "anatomicalTip": "Notice how the small finishing strokes anchor letters such as I, T, E, and n."
+    },
+    {
+      "id": "serif_166",
+      "name": "Sorts Mill Goudy",
+      "category": "Serif",
+      "anatomicalTip": "Look at the contrast between thick and thin strokes and the finishing feet on vertical stems."
+    },
+    {
+      "id": "serif_167",
+      "name": "Tinos",
+      "category": "Serif",
+      "anatomicalTip": "Examine letter terminals and bracketed joins; serif details remain visible even at smaller sizes."
+    },
+    {
+      "id": "serif_168",
+      "name": "Uncial Antiqua",
+      "category": "Serif",
+      "anatomicalTip": "Check the ends of the strokes for short crossbars or feet, especially on capitals and lowercase stems."
+    },
+    {
+      "id": "serif_169",
+      "name": "Vesper Libre",
+      "category": "Serif",
+      "anatomicalTip": "Look for small finishing strokes at the ends of the main letterforms; compare the feet on the stems."
+    },
+    {
+      "id": "serif_170",
+      "name": "Viaoda Libre",
+      "category": "Serif",
+      "anatomicalTip": "Inspect the terminals: the strokes end in visible serifs rather than plain, unadorned cuts."
+    },
+    {
+      "id": "serif_171",
+      "name": "Zen Antique",
+      "category": "Serif",
+      "anatomicalTip": "Notice how the small finishing strokes anchor letters such as I, T, E, and n."
+    },
+    {
+      "id": "serif_172",
+      "name": "Zen Antique Soft",
+      "category": "Serif",
+      "anatomicalTip": "Look at the contrast between thick and thin strokes and the finishing feet on vertical stems."
+    },
+    {
+      "id": "serif_173",
+      "name": "Zen Old Mincho",
+      "category": "Serif",
+      "anatomicalTip": "Examine letter terminals and bracketed joins; serif details remain visible even at smaller sizes."
+    },
+    {
+      "id": "serif_174",
+      "name": "BIZ UDMincho",
+      "category": "Serif",
+      "anatomicalTip": "Check the ends of the strokes for short crossbars or feet, especially on capitals and lowercase stems."
+    },
+    {
+      "id": "serif_175",
+      "name": "Hina Mincho",
+      "category": "Serif",
+      "anatomicalTip": "Look for small finishing strokes at the ends of the main letterforms; compare the feet on the stems."
+    },
+    {
+      "id": "serif_176",
+      "name": "Noto Serif Armenian",
+      "category": "Serif",
+      "anatomicalTip": "Inspect the terminals: the strokes end in visible serifs rather than plain, unadorned cuts."
+    },
+    {
+      "id": "serif_177",
+      "name": "Noto Serif Bengali",
+      "category": "Serif",
+      "anatomicalTip": "Notice how the small finishing strokes anchor letters such as I, T, E, and n."
+    },
+    {
+      "id": "serif_178",
+      "name": "Noto Serif Devanagari",
+      "category": "Serif",
+      "anatomicalTip": "Look at the contrast between thick and thin strokes and the finishing feet on vertical stems."
+    },
+    {
+      "id": "serif_179",
+      "name": "Noto Serif Ethiopic",
+      "category": "Serif",
+      "anatomicalTip": "Examine letter terminals and bracketed joins; serif details remain visible even at smaller sizes."
+    },
+    {
+      "id": "serif_180",
+      "name": "Noto Serif Georgian",
+      "category": "Serif",
+      "anatomicalTip": "Check the ends of the strokes for short crossbars or feet, especially on capitals and lowercase stems."
+    },
+    {
+      "id": "serif_181",
+      "name": "Noto Serif Hebrew",
+      "category": "Serif",
+      "anatomicalTip": "Look for small finishing strokes at the ends of the main letterforms; compare the feet on the stems."
+    },
+    {
+      "id": "serif_182",
+      "name": "Noto Serif Khmer",
+      "category": "Serif",
+      "anatomicalTip": "Inspect the terminals: the strokes end in visible serifs rather than plain, unadorned cuts."
+    },
+    {
+      "id": "serif_183",
+      "name": "Noto Serif Lao",
+      "category": "Serif",
+      "anatomicalTip": "Notice how the small finishing strokes anchor letters such as I, T, E, and n."
+    },
+    {
+      "id": "serif_184",
+      "name": "Noto Serif Malayalam",
+      "category": "Serif",
+      "anatomicalTip": "Look at the contrast between thick and thin strokes and the finishing feet on vertical stems."
+    },
+    {
+      "id": "serif_185",
+      "name": "Noto Serif Myanmar",
+      "category": "Serif",
+      "anatomicalTip": "Examine letter terminals and bracketed joins; serif details remain visible even at smaller sizes."
+    },
+    {
+      "id": "serif_186",
+      "name": "Noto Serif Sinhala",
+      "category": "Serif",
+      "anatomicalTip": "Check the ends of the strokes for short crossbars or feet, especially on capitals and lowercase stems."
+    },
+    {
+      "id": "serif_187",
+      "name": "Noto Serif Thai",
+      "category": "Serif",
+      "anatomicalTip": "Look for small finishing strokes at the ends of the main letterforms; compare the feet on the stems."
+    },
+    {
+      "id": "serif_188",
+      "name": "Noto Serif Tibetan",
+      "category": "Serif",
+      "anatomicalTip": "Inspect the terminals: the strokes end in visible serifs rather than plain, unadorned cuts."
+    },
+    {
+      "id": "serif_189",
+      "name": "Noto Serif Yezidi",
+      "category": "Serif",
+      "anatomicalTip": "Notice how the small finishing strokes anchor letters such as I, T, E, and n."
+    },
+    {
+      "id": "serif_190",
+      "name": "Adobe Caslon",
+      "category": "Serif",
+      "anatomicalTip": "Look at the contrast between thick and thin strokes and the finishing feet on vertical stems."
+    },
+    {
+      "id": "serif_191",
+      "name": "Aldus",
+      "category": "Serif",
+      "anatomicalTip": "Examine letter terminals and bracketed joins; serif details remain visible even at smaller sizes."
+    },
+    {
+      "id": "serif_192",
+      "name": "American Typewriter",
+      "category": "Serif",
+      "anatomicalTip": "Check the ends of the strokes for short crossbars or feet, especially on capitals and lowercase stems."
+    },
+    {
+      "id": "serif_193",
+      "name": "Amasis",
+      "category": "Serif",
+      "anatomicalTip": "Look for small finishing strokes at the ends of the main letterforms; compare the feet on the stems."
+    },
+    {
+      "id": "serif_194",
+      "name": "Aster",
+      "category": "Serif",
+      "anatomicalTip": "Inspect the terminals: the strokes end in visible serifs rather than plain, unadorned cuts."
+    },
+    {
+      "id": "serif_195",
+      "name": "Athelas",
+      "category": "Serif",
+      "anatomicalTip": "Notice how the small finishing strokes anchor letters such as I, T, E, and n."
+    },
+    {
+      "id": "serif_196",
+      "name": "ATF Garamond",
+      "category": "Serif",
+      "anatomicalTip": "Look at the contrast between thick and thin strokes and the finishing feet on vertical stems."
+    },
+    {
+      "id": "serif_197",
+      "name": "Baskerville",
+      "category": "Serif",
+      "anatomicalTip": "Examine letter terminals and bracketed joins; serif details remain visible even at smaller sizes."
+    },
+    {
+      "id": "serif_198",
+      "name": "Bell MT",
+      "category": "Serif",
+      "anatomicalTip": "Check the ends of the strokes for short crossbars or feet, especially on capitals and lowercase stems."
+    },
+    {
+      "id": "serif_199",
+      "name": "Bembo",
+      "category": "Serif",
+      "anatomicalTip": "Look for small finishing strokes at the ends of the main letterforms; compare the feet on the stems."
+    },
+    {
+      "id": "serif_200",
+      "name": "Berkeley Oldstyle",
+      "category": "Serif",
+      "anatomicalTip": "Inspect the terminals: the strokes end in visible serifs rather than plain, unadorned cuts."
+    },
+    {
+      "id": "sans_1",
+      "name": "ABeeZee",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Look for clean stroke terminals without small finishing serifs; the ends are generally plain."
+    },
+    {
+      "id": "sans_2",
+      "name": "Abel",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Inspect letters such as I, T, E, and n: the strokes end cleanly rather than forming feet."
+    },
+    {
+      "id": "sans_3",
+      "name": "Afacad",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Notice the unadorned terminals and relatively simple joins between strokes."
+    },
+    {
+      "id": "sans_4",
+      "name": "Afacad Flux",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Check the ends of vertical stems for the absence of small finishing strokes."
+    },
+    {
+      "id": "sans_5",
+      "name": "Advent Pro",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Focus on terminal shapes: they are clean cuts, not bracketed or unbracketed serifs."
+    },
+    {
+      "id": "sans_6",
+      "name": "Alata",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Look for a simplified letter skeleton with no small finishing strokes at the stroke ends."
+    },
+    {
+      "id": "sans_7",
+      "name": "Alef",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Look for clean stroke terminals without small finishing serifs; the ends are generally plain."
+    },
+    {
+      "id": "sans_8",
+      "name": "Alegreya Sans",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Inspect letters such as I, T, E, and n: the strokes end cleanly rather than forming feet."
+    },
+    {
+      "id": "sans_9",
+      "name": "Alegreya Sans SC",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Notice the unadorned terminals and relatively simple joins between strokes."
+    },
+    {
+      "id": "sans_10",
+      "name": "Alexandria",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Check the ends of vertical stems for the absence of small finishing strokes."
+    },
+    {
+      "id": "sans_11",
+      "name": "Almarai",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Focus on terminal shapes: they are clean cuts, not bracketed or unbracketed serifs."
+    },
+    {
+      "id": "sans_12",
+      "name": "Alumni Sans",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Look for a simplified letter skeleton with no small finishing strokes at the stroke ends."
+    },
+    {
+      "id": "sans_13",
+      "name": "Amiko",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Look for clean stroke terminals without small finishing serifs; the ends are generally plain."
+    },
+    {
+      "id": "sans_14",
+      "name": "Andika",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Inspect letters such as I, T, E, and n: the strokes end cleanly rather than forming feet."
+    },
+    {
+      "id": "sans_15",
+      "name": "Anonymous Pro",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Notice the unadorned terminals and relatively simple joins between strokes."
+    },
+    {
+      "id": "sans_16",
+      "name": "Anta",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Check the ends of vertical stems for the absence of small finishing strokes."
+    },
+    {
+      "id": "sans_17",
+      "name": "Anton",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Focus on terminal shapes: they are clean cuts, not bracketed or unbracketed serifs."
+    },
+    {
+      "id": "sans_18",
+      "name": "Antonio",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Look for a simplified letter skeleton with no small finishing strokes at the stroke ends."
+    },
+    {
+      "id": "sans_19",
+      "name": "Archivo",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Look for clean stroke terminals without small finishing serifs; the ends are generally plain."
+    },
+    {
+      "id": "sans_20",
+      "name": "Archivo Black",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Inspect letters such as I, T, E, and n: the strokes end cleanly rather than forming feet."
+    },
+    {
+      "id": "sans_21",
+      "name": "Archivo Narrow",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Notice the unadorned terminals and relatively simple joins between strokes."
+    },
+    {
+      "id": "sans_22",
+      "name": "Arimo",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Check the ends of vertical stems for the absence of small finishing strokes."
+    },
+    {
+      "id": "sans_23",
+      "name": "Armata",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Focus on terminal shapes: they are clean cuts, not bracketed or unbracketed serifs."
+    },
+    {
+      "id": "sans_24",
+      "name": "Arsenal",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Look for a simplified letter skeleton with no small finishing strokes at the stroke ends."
+    },
+    {
+      "id": "sans_25",
+      "name": "Asap",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Look for clean stroke terminals without small finishing serifs; the ends are generally plain."
+    },
+    {
+      "id": "sans_26",
+      "name": "Assistant",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Inspect letters such as I, T, E, and n: the strokes end cleanly rather than forming feet."
+    },
+    {
+      "id": "sans_27",
+      "name": "Atkinson Hyperlegible",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Notice the unadorned terminals and relatively simple joins between strokes."
+    },
+    {
+      "id": "sans_28",
+      "name": "Audiowide",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Check the ends of vertical stems for the absence of small finishing strokes."
+    },
+    {
+      "id": "sans_29",
+      "name": "Averia Sans Libre",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Focus on terminal shapes: they are clean cuts, not bracketed or unbracketed serifs."
+    },
+    {
+      "id": "sans_30",
+      "name": "B612",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Look for a simplified letter skeleton with no small finishing strokes at the stroke ends."
+    },
+    {
+      "id": "sans_31",
+      "name": "B612 Mono",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Look for clean stroke terminals without small finishing serifs; the ends are generally plain."
+    },
+    {
+      "id": "sans_32",
+      "name": "Baloo 2",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Inspect letters such as I, T, E, and n: the strokes end cleanly rather than forming feet."
+    },
+    {
+      "id": "sans_33",
+      "name": "Barlow",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Notice the unadorned terminals and relatively simple joins between strokes."
+    },
+    {
+      "id": "sans_34",
+      "name": "Barlow Condensed",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Check the ends of vertical stems for the absence of small finishing strokes."
+    },
+    {
+      "id": "sans_35",
+      "name": "Barlow Semi Condensed",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Focus on terminal shapes: they are clean cuts, not bracketed or unbracketed serifs."
+    },
+    {
+      "id": "sans_36",
+      "name": "Bebas Neue",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Look for a simplified letter skeleton with no small finishing strokes at the stroke ends."
+    },
+    {
+      "id": "sans_37",
+      "name": "Be Vietnam Pro",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Look for clean stroke terminals without small finishing serifs; the ends are generally plain."
+    },
+    {
+      "id": "sans_38",
+      "name": "Belleza",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Inspect letters such as I, T, E, and n: the strokes end cleanly rather than forming feet."
+    },
+    {
+      "id": "sans_39",
+      "name": "BenchNine",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Notice the unadorned terminals and relatively simple joins between strokes."
+    },
+    {
+      "id": "sans_40",
+      "name": "Biryani",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Check the ends of vertical stems for the absence of small finishing strokes."
+    },
+    {
+      "id": "sans_41",
+      "name": "Black Ops One",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Focus on terminal shapes: they are clean cuts, not bracketed or unbracketed serifs."
+    },
+    {
+      "id": "sans_42",
+      "name": "Blinker",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Look for a simplified letter skeleton with no small finishing strokes at the stroke ends."
+    },
+    {
+      "id": "sans_43",
+      "name": "Bowlby One SC",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Look for clean stroke terminals without small finishing serifs; the ends are generally plain."
+    },
+    {
+      "id": "sans_44",
+      "name": "Bruno Ace",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Inspect letters such as I, T, E, and n: the strokes end cleanly rather than forming feet."
+    },
+    {
+      "id": "sans_45",
+      "name": "Cabin",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Notice the unadorned terminals and relatively simple joins between strokes."
+    },
+    {
+      "id": "sans_46",
+      "name": "Cabin Condensed",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Check the ends of vertical stems for the absence of small finishing strokes."
+    },
+    {
+      "id": "sans_47",
+      "name": "Cairo",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Focus on terminal shapes: they are clean cuts, not bracketed or unbracketed serifs."
+    },
+    {
+      "id": "sans_48",
+      "name": "Candal",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Look for a simplified letter skeleton with no small finishing strokes at the stroke ends."
+    },
+    {
+      "id": "sans_49",
+      "name": "Cantarell",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Look for clean stroke terminals without small finishing serifs; the ends are generally plain."
+    },
+    {
+      "id": "sans_50",
+      "name": "Capriola",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Inspect letters such as I, T, E, and n: the strokes end cleanly rather than forming feet."
+    },
+    {
+      "id": "sans_51",
+      "name": "Carme",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Notice the unadorned terminals and relatively simple joins between strokes."
+    },
+    {
+      "id": "sans_52",
+      "name": "Carrois Gothic",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Check the ends of vertical stems for the absence of small finishing strokes."
+    },
+    {
+      "id": "sans_53",
+      "name": "Catamaran",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Focus on terminal shapes: they are clean cuts, not bracketed or unbracketed serifs."
+    },
+    {
+      "id": "sans_54",
+      "name": "Chakra Petch",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Look for a simplified letter skeleton with no small finishing strokes at the stroke ends."
+    },
+    {
+      "id": "sans_55",
+      "name": "Changa",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Look for clean stroke terminals without small finishing serifs; the ends are generally plain."
+    },
+    {
+      "id": "sans_56",
+      "name": "Changa One",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Inspect letters such as I, T, E, and n: the strokes end cleanly rather than forming feet."
+    },
+    {
+      "id": "sans_57",
+      "name": "Chivo",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Notice the unadorned terminals and relatively simple joins between strokes."
+    },
+    {
+      "id": "sans_58",
+      "name": "Chivo Mono",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Check the ends of vertical stems for the absence of small finishing strokes."
+    },
+    {
+      "id": "sans_59",
+      "name": "Comfortaa",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Focus on terminal shapes: they are clean cuts, not bracketed or unbracketed serifs."
+    },
+    {
+      "id": "sans_60",
+      "name": "Commissioner",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Look for a simplified letter skeleton with no small finishing strokes at the stroke ends."
+    },
+    {
+      "id": "sans_61",
+      "name": "Comme",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Look for clean stroke terminals without small finishing serifs; the ends are generally plain."
+    },
+    {
+      "id": "sans_62",
+      "name": "Convergence",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Inspect letters such as I, T, E, and n: the strokes end cleanly rather than forming feet."
+    },
+    {
+      "id": "sans_63",
+      "name": "Cuprum",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Notice the unadorned terminals and relatively simple joins between strokes."
+    },
+    {
+      "id": "sans_64",
+      "name": "Darker Grotesque",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Check the ends of vertical stems for the absence of small finishing strokes."
+    },
+    {
+      "id": "sans_65",
+      "name": "Dela Gothic One",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Focus on terminal shapes: they are clean cuts, not bracketed or unbracketed serifs."
+    },
+    {
+      "id": "sans_66",
+      "name": "Denk One",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Look for a simplified letter skeleton with no small finishing strokes at the stroke ends."
+    },
+    {
+      "id": "sans_67",
+      "name": "Didact Gothic",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Look for clean stroke terminals without small finishing serifs; the ends are generally plain."
+    },
+    {
+      "id": "sans_68",
+      "name": "Dosis",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Inspect letters such as I, T, E, and n: the strokes end cleanly rather than forming feet."
+    },
+    {
+      "id": "sans_69",
+      "name": "DynaPuff",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Notice the unadorned terminals and relatively simple joins between strokes."
+    },
+    {
+      "id": "sans_70",
+      "name": "Epilogue",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Check the ends of vertical stems for the absence of small finishing strokes."
+    },
+    {
+      "id": "sans_71",
+      "name": "Encode Sans",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Focus on terminal shapes: they are clean cuts, not bracketed or unbracketed serifs."
+    },
+    {
+      "id": "sans_72",
+      "name": "Encode Sans Condensed",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Look for a simplified letter skeleton with no small finishing strokes at the stroke ends."
+    },
+    {
+      "id": "sans_73",
+      "name": "Encode Sans Expanded",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Look for clean stroke terminals without small finishing serifs; the ends are generally plain."
+    },
+    {
+      "id": "sans_74",
+      "name": "Exo",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Inspect letters such as I, T, E, and n: the strokes end cleanly rather than forming feet."
+    },
+    {
+      "id": "sans_75",
+      "name": "Exo 2",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Notice the unadorned terminals and relatively simple joins between strokes."
+    },
+    {
+      "id": "sans_76",
+      "name": "Familjen Grotesk",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Check the ends of vertical stems for the absence of small finishing strokes."
+    },
+    {
+      "id": "sans_77",
+      "name": "Figtree",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Focus on terminal shapes: they are clean cuts, not bracketed or unbracketed serifs."
+    },
+    {
+      "id": "sans_78",
+      "name": "Fira Code",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Look for a simplified letter skeleton with no small finishing strokes at the stroke ends."
+    },
+    {
+      "id": "sans_79",
+      "name": "Fira Mono",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Look for clean stroke terminals without small finishing serifs; the ends are generally plain."
+    },
+    {
+      "id": "sans_80",
+      "name": "Fira Sans",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Inspect letters such as I, T, E, and n: the strokes end cleanly rather than forming feet."
+    },
+    {
+      "id": "sans_81",
+      "name": "Fira Sans Condensed",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Notice the unadorned terminals and relatively simple joins between strokes."
+    },
+    {
+      "id": "sans_82",
+      "name": "Fjalla One",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Check the ends of vertical stems for the absence of small finishing strokes."
+    },
+    {
+      "id": "sans_83",
+      "name": "Francois One",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Focus on terminal shapes: they are clean cuts, not bracketed or unbracketed serifs."
+    },
+    {
+      "id": "sans_84",
+      "name": "Gabarito",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Look for a simplified letter skeleton with no small finishing strokes at the stroke ends."
+    },
+    {
+      "id": "sans_85",
+      "name": "Galindo",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Look for clean stroke terminals without small finishing serifs; the ends are generally plain."
+    },
+    {
+      "id": "sans_86",
+      "name": "Gantari",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Inspect letters such as I, T, E, and n: the strokes end cleanly rather than forming feet."
+    },
+    {
+      "id": "sans_87",
+      "name": "Geist",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Notice the unadorned terminals and relatively simple joins between strokes."
+    },
+    {
+      "id": "sans_88",
+      "name": "Gemunu Libre",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Check the ends of vertical stems for the absence of small finishing strokes."
+    },
+    {
+      "id": "sans_89",
+      "name": "Genos",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Focus on terminal shapes: they are clean cuts, not bracketed or unbracketed serifs."
+    },
+    {
+      "id": "sans_90",
+      "name": "Georama",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Look for a simplified letter skeleton with no small finishing strokes at the stroke ends."
+    },
+    {
+      "id": "sans_91",
+      "name": "Gidugu",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Look for clean stroke terminals without small finishing serifs; the ends are generally plain."
+    },
+    {
+      "id": "sans_92",
+      "name": "Golos Text",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Inspect letters such as I, T, E, and n: the strokes end cleanly rather than forming feet."
+    },
+    {
+      "id": "sans_93",
+      "name": "Gothic A1",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Notice the unadorned terminals and relatively simple joins between strokes."
+    },
+    {
+      "id": "sans_94",
+      "name": "Gowun Dodum",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Check the ends of vertical stems for the absence of small finishing strokes."
+    },
+    {
+      "id": "sans_95",
+      "name": "Gugi",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Focus on terminal shapes: they are clean cuts, not bracketed or unbracketed serifs."
+    },
+    {
+      "id": "sans_96",
+      "name": "Hanken Grotesk",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Look for a simplified letter skeleton with no small finishing strokes at the stroke ends."
+    },
+    {
+      "id": "sans_97",
+      "name": "Heebo",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Look for clean stroke terminals without small finishing serifs; the ends are generally plain."
+    },
+    {
+      "id": "sans_98",
+      "name": "Hind",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Inspect letters such as I, T, E, and n: the strokes end cleanly rather than forming feet."
+    },
+    {
+      "id": "sans_99",
+      "name": "Hind Madurai",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Notice the unadorned terminals and relatively simple joins between strokes."
+    },
+    {
+      "id": "sans_100",
+      "name": "Hind Siliguri",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Check the ends of vertical stems for the absence of small finishing strokes."
+    },
+    {
+      "id": "sans_101",
+      "name": "IBM Plex Mono",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Focus on terminal shapes: they are clean cuts, not bracketed or unbracketed serifs."
+    },
+    {
+      "id": "sans_102",
+      "name": "IBM Plex Sans",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Look for a simplified letter skeleton with no small finishing strokes at the stroke ends."
+    },
+    {
+      "id": "sans_103",
+      "name": "IBM Plex Sans Condensed",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Look for clean stroke terminals without small finishing serifs; the ends are generally plain."
+    },
+    {
+      "id": "sans_104",
+      "name": "IBM Plex Sans Devanagari",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Inspect letters such as I, T, E, and n: the strokes end cleanly rather than forming feet."
+    },
+    {
+      "id": "sans_105",
+      "name": "Imprima",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Notice the unadorned terminals and relatively simple joins between strokes."
+    },
+    {
+      "id": "sans_106",
+      "name": "Inconsolata",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Check the ends of vertical stems for the absence of small finishing strokes."
+    },
+    {
+      "id": "sans_107",
+      "name": "Inder",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Focus on terminal shapes: they are clean cuts, not bracketed or unbracketed serifs."
+    },
+    {
+      "id": "sans_108",
+      "name": "Inter",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Look for a simplified letter skeleton with no small finishing strokes at the stroke ends."
+    },
+    {
+      "id": "sans_109",
+      "name": "Istok Web",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Look for clean stroke terminals without small finishing serifs; the ends are generally plain."
+    },
+    {
+      "id": "sans_110",
+      "name": "Jaldi",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Inspect letters such as I, T, E, and n: the strokes end cleanly rather than forming feet."
+    },
+    {
+      "id": "sans_111",
+      "name": "Jockey One",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Notice the unadorned terminals and relatively simple joins between strokes."
+    },
+    {
+      "id": "sans_112",
+      "name": "Josefin Sans",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Check the ends of vertical stems for the absence of small finishing strokes."
+    },
+    {
+      "id": "sans_113",
+      "name": "Jost",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Focus on terminal shapes: they are clean cuts, not bracketed or unbracketed serifs."
+    },
+    {
+      "id": "sans_114",
+      "name": "Jura",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Look for a simplified letter skeleton with no small finishing strokes at the stroke ends."
+    },
+    {
+      "id": "sans_115",
+      "name": "Kanit",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Look for clean stroke terminals without small finishing serifs; the ends are generally plain."
+    },
+    {
+      "id": "sans_116",
+      "name": "Karla",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Inspect letters such as I, T, E, and n: the strokes end cleanly rather than forming feet."
+    },
+    {
+      "id": "sans_117",
+      "name": "Khand",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Notice the unadorned terminals and relatively simple joins between strokes."
+    },
+    {
+      "id": "sans_118",
+      "name": "Kodchasan",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Check the ends of vertical stems for the absence of small finishing strokes."
+    },
+    {
+      "id": "sans_119",
+      "name": "Kosugi",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Focus on terminal shapes: they are clean cuts, not bracketed or unbracketed serifs."
+    },
+    {
+      "id": "sans_120",
+      "name": "Koulen",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Look for a simplified letter skeleton with no small finishing strokes at the stroke ends."
+    },
+    {
+      "id": "sans_121",
+      "name": "Krub",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Look for clean stroke terminals without small finishing serifs; the ends are generally plain."
+    },
+    {
+      "id": "sans_122",
+      "name": "Kulim Park",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Inspect letters such as I, T, E, and n: the strokes end cleanly rather than forming feet."
+    },
+    {
+      "id": "sans_123",
+      "name": "Kumbh Sans",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Notice the unadorned terminals and relatively simple joins between strokes."
+    },
+    {
+      "id": "sans_124",
+      "name": "League Gothic",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Check the ends of vertical stems for the absence of small finishing strokes."
+    },
+    {
+      "id": "sans_125",
+      "name": "League Spartan",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Focus on terminal shapes: they are clean cuts, not bracketed or unbracketed serifs."
+    },
+    {
+      "id": "sans_126",
+      "name": "Lexend",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Look for a simplified letter skeleton with no small finishing strokes at the stroke ends."
+    },
+    {
+      "id": "sans_127",
+      "name": "Lexend Deca",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Look for clean stroke terminals without small finishing serifs; the ends are generally plain."
+    },
+    {
+      "id": "sans_128",
+      "name": "Lexend Exa",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Inspect letters such as I, T, E, and n: the strokes end cleanly rather than forming feet."
+    },
+    {
+      "id": "sans_129",
+      "name": "Lexend Giga",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Notice the unadorned terminals and relatively simple joins between strokes."
+    },
+    {
+      "id": "sans_130",
+      "name": "Lexend Mega",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Check the ends of vertical stems for the absence of small finishing strokes."
+    },
+    {
+      "id": "sans_131",
+      "name": "Lexend Peta",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Focus on terminal shapes: they are clean cuts, not bracketed or unbracketed serifs."
+    },
+    {
+      "id": "sans_132",
+      "name": "Lexend Tera",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Look for a simplified letter skeleton with no small finishing strokes at the stroke ends."
+    },
+    {
+      "id": "sans_133",
+      "name": "Lexend Zetta",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Look for clean stroke terminals without small finishing serifs; the ends are generally plain."
+    },
+    {
+      "id": "sans_134",
+      "name": "Libre Franklin",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Inspect letters such as I, T, E, and n: the strokes end cleanly rather than forming feet."
+    },
+    {
+      "id": "sans_135",
+      "name": "Livvic",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Notice the unadorned terminals and relatively simple joins between strokes."
+    },
+    {
+      "id": "sans_136",
+      "name": "Londrina Solid",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Check the ends of vertical stems for the absence of small finishing strokes."
+    },
+    {
+      "id": "sans_137",
+      "name": "M PLUS 1",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Focus on terminal shapes: they are clean cuts, not bracketed or unbracketed serifs."
+    },
+    {
+      "id": "sans_138",
+      "name": "M PLUS 1 Code",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Look for a simplified letter skeleton with no small finishing strokes at the stroke ends."
+    },
+    {
+      "id": "sans_139",
+      "name": "M PLUS 2",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Look for clean stroke terminals without small finishing serifs; the ends are generally plain."
+    },
+    {
+      "id": "sans_140",
+      "name": "M PLUS Rounded 1c",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Inspect letters such as I, T, E, and n: the strokes end cleanly rather than forming feet."
+    },
+    {
+      "id": "sans_141",
+      "name": "Manjari",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Notice the unadorned terminals and relatively simple joins between strokes."
+    },
+    {
+      "id": "sans_142",
+      "name": "Manrope",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Check the ends of vertical stems for the absence of small finishing strokes."
+    },
+    {
+      "id": "sans_143",
+      "name": "Maven Pro",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Focus on terminal shapes: they are clean cuts, not bracketed or unbracketed serifs."
+    },
+    {
+      "id": "sans_144",
+      "name": "Meera Inimai",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Look for a simplified letter skeleton with no small finishing strokes at the stroke ends."
+    },
+    {
+      "id": "sans_145",
+      "name": "Merriweather Sans",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Look for clean stroke terminals without small finishing serifs; the ends are generally plain."
+    },
+    {
+      "id": "sans_146",
+      "name": "Metrophobic",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Inspect letters such as I, T, E, and n: the strokes end cleanly rather than forming feet."
+    },
+    {
+      "id": "sans_147",
+      "name": "Michroma",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Notice the unadorned terminals and relatively simple joins between strokes."
+    },
+    {
+      "id": "sans_148",
+      "name": "Mina",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Check the ends of vertical stems for the absence of small finishing strokes."
+    },
+    {
+      "id": "sans_149",
+      "name": "Mitr",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Focus on terminal shapes: they are clean cuts, not bracketed or unbracketed serifs."
+    },
+    {
+      "id": "sans_150",
+      "name": "Monda",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Look for a simplified letter skeleton with no small finishing strokes at the stroke ends."
+    },
+    {
+      "id": "sans_151",
+      "name": "Montserrat",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Look for clean stroke terminals without small finishing serifs; the ends are generally plain."
+    },
+    {
+      "id": "sans_152",
+      "name": "Montserrat Alternates",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Inspect letters such as I, T, E, and n: the strokes end cleanly rather than forming feet."
+    },
+    {
+      "id": "sans_153",
+      "name": "Mooli",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Notice the unadorned terminals and relatively simple joins between strokes."
+    },
+    {
+      "id": "sans_154",
+      "name": "Mulish",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Check the ends of vertical stems for the absence of small finishing strokes."
+    },
+    {
+      "id": "sans_155",
+      "name": "MuseoModerno",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Focus on terminal shapes: they are clean cuts, not bracketed or unbracketed serifs."
+    },
+    {
+      "id": "sans_156",
+      "name": "Mynerve",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Look for a simplified letter skeleton with no small finishing strokes at the stroke ends."
+    },
+    {
+      "id": "sans_157",
+      "name": "Nanum Gothic",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Look for clean stroke terminals without small finishing serifs; the ends are generally plain."
+    },
+    {
+      "id": "sans_158",
+      "name": "Nanum Gothic Coding",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Inspect letters such as I, T, E, and n: the strokes end cleanly rather than forming feet."
+    },
+    {
+      "id": "sans_159",
+      "name": "News Cycle",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Notice the unadorned terminals and relatively simple joins between strokes."
+    },
+    {
+      "id": "sans_160",
+      "name": "Noto Sans",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Check the ends of vertical stems for the absence of small finishing strokes."
+    },
+    {
+      "id": "sans_161",
+      "name": "Noto Sans Display",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Focus on terminal shapes: they are clean cuts, not bracketed or unbracketed serifs."
+    },
+    {
+      "id": "sans_162",
+      "name": "Noto Sans JP",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Look for a simplified letter skeleton with no small finishing strokes at the stroke ends."
+    },
+    {
+      "id": "sans_163",
+      "name": "Noto Sans KR",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Look for clean stroke terminals without small finishing serifs; the ends are generally plain."
+    },
+    {
+      "id": "sans_164",
+      "name": "Noto Sans SC",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Inspect letters such as I, T, E, and n: the strokes end cleanly rather than forming feet."
+    },
+    {
+      "id": "sans_165",
+      "name": "Noto Sans TC",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Notice the unadorned terminals and relatively simple joins between strokes."
+    },
+    {
+      "id": "sans_166",
+      "name": "Nunito",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Check the ends of vertical stems for the absence of small finishing strokes."
+    },
+    {
+      "id": "sans_167",
+      "name": "Nunito Sans",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Focus on terminal shapes: they are clean cuts, not bracketed or unbracketed serifs."
+    },
+    {
+      "id": "sans_168",
+      "name": "Odibee Sans",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Look for a simplified letter skeleton with no small finishing strokes at the stroke ends."
+    },
+    {
+      "id": "sans_169",
+      "name": "Onest",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Look for clean stroke terminals without small finishing serifs; the ends are generally plain."
+    },
+    {
+      "id": "sans_170",
+      "name": "Open Sans",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Inspect letters such as I, T, E, and n: the strokes end cleanly rather than forming feet."
+    },
+    {
+      "id": "sans_171",
+      "name": "Orbitron",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Notice the unadorned terminals and relatively simple joins between strokes."
+    },
+    {
+      "id": "sans_172",
+      "name": "Oswald",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Check the ends of vertical stems for the absence of small finishing strokes."
+    },
+    {
+      "id": "sans_173",
+      "name": "Outfit",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Focus on terminal shapes: they are clean cuts, not bracketed or unbracketed serifs."
+    },
+    {
+      "id": "sans_174",
+      "name": "Overpass",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Look for a simplified letter skeleton with no small finishing strokes at the stroke ends."
+    },
+    {
+      "id": "sans_175",
+      "name": "Overpass Mono",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Look for clean stroke terminals without small finishing serifs; the ends are generally plain."
+    },
+    {
+      "id": "sans_176",
+      "name": "Oxygen",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Inspect letters such as I, T, E, and n: the strokes end cleanly rather than forming feet."
+    },
+    {
+      "id": "sans_177",
+      "name": "Oxygen Mono",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Notice the unadorned terminals and relatively simple joins between strokes."
+    },
+    {
+      "id": "sans_178",
+      "name": "PT Mono",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Check the ends of vertical stems for the absence of small finishing strokes."
+    },
+    {
+      "id": "sans_179",
+      "name": "PT Sans",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Focus on terminal shapes: they are clean cuts, not bracketed or unbracketed serifs."
+    },
+    {
+      "id": "sans_180",
+      "name": "PT Sans Caption",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Look for a simplified letter skeleton with no small finishing strokes at the stroke ends."
+    },
+    {
+      "id": "sans_181",
+      "name": "PT Sans Narrow",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Look for clean stroke terminals without small finishing serifs; the ends are generally plain."
+    },
+    {
+      "id": "sans_182",
+      "name": "Padauk",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Inspect letters such as I, T, E, and n: the strokes end cleanly rather than forming feet."
+    },
+    {
+      "id": "sans_183",
+      "name": "Palanquin",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Notice the unadorned terminals and relatively simple joins between strokes."
+    },
+    {
+      "id": "sans_184",
+      "name": "Palanquin Dark",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Check the ends of vertical stems for the absence of small finishing strokes."
+    },
+    {
+      "id": "sans_185",
+      "name": "Pathway Extreme",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Focus on terminal shapes: they are clean cuts, not bracketed or unbracketed serifs."
+    },
+    {
+      "id": "sans_186",
+      "name": "Paytone One",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Look for a simplified letter skeleton with no small finishing strokes at the stroke ends."
+    },
+    {
+      "id": "sans_187",
+      "name": "Phudu",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Look for clean stroke terminals without small finishing serifs; the ends are generally plain."
+    },
+    {
+      "id": "sans_188",
+      "name": "Play",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Inspect letters such as I, T, E, and n: the strokes end cleanly rather than forming feet."
+    },
+    {
+      "id": "sans_189",
+      "name": "Plus Jakarta Sans",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Notice the unadorned terminals and relatively simple joins between strokes."
+    },
+    {
+      "id": "sans_190",
+      "name": "Poetsen One",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Check the ends of vertical stems for the absence of small finishing strokes."
+    },
+    {
+      "id": "sans_191",
+      "name": "Poppins",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Focus on terminal shapes: they are clean cuts, not bracketed or unbracketed serifs."
+    },
+    {
+      "id": "sans_192",
+      "name": "Prompt",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Look for a simplified letter skeleton with no small finishing strokes at the stroke ends."
+    },
+    {
+      "id": "sans_193",
+      "name": "Public Sans",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Look for clean stroke terminals without small finishing serifs; the ends are generally plain."
+    },
+    {
+      "id": "sans_194",
+      "name": "Questrial",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Inspect letters such as I, T, E, and n: the strokes end cleanly rather than forming feet."
+    },
+    {
+      "id": "sans_195",
+      "name": "Quicksand",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Notice the unadorned terminals and relatively simple joins between strokes."
+    },
+    {
+      "id": "sans_196",
+      "name": "Rajdhani",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Check the ends of vertical stems for the absence of small finishing strokes."
+    },
+    {
+      "id": "sans_197",
+      "name": "Raleway",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Focus on terminal shapes: they are clean cuts, not bracketed or unbracketed serifs."
+    },
+    {
+      "id": "sans_198",
+      "name": "Red Hat Display",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Look for a simplified letter skeleton with no small finishing strokes at the stroke ends."
+    },
+    {
+      "id": "sans_199",
+      "name": "Red Hat Mono",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Look for clean stroke terminals without small finishing serifs; the ends are generally plain."
+    },
+    {
+      "id": "sans_200",
+      "name": "Red Hat Text",
+      "category": "Sans-Serif",
+      "anatomicalTip": "Inspect letters such as I, T, E, and n: the strokes end cleanly rather than forming feet."
+    }
+  ]
+}

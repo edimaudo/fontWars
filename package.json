@@ -1,0 +1,29 @@
+{
+  "name": "font-wars",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A spatial typography training game for WebXR and Meta Quest.",
+  "scripts": {
+    "dev": "iwsdk dev restart --foreground",
+    "dev:runtime": "vite --host 0.0.0.0",
+    "dev:status": "iwsdk dev status",
+    "dev:down": "iwsdk dev down",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "data:generate": "python scripts/generate-data.py",
+    "data:validate": "python scripts/validate-data.py"
+  },
+  "dependencies": {
+    "@iwsdk/core": "0.5.3",
+    "three": "npm:super-three@0.181.0"
+  },
+  "devDependencies": {
+    "@iwsdk/cli": "0.4.2",
+    "@iwsdk/vite-plugin-dev": "0.4.2",
+    "vite": "^7.1.4"
+  },
+  "overrides": {
+    "three": "npm:super-three@0.181.0"
+  }
+}
