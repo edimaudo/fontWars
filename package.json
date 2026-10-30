@@ -12,7 +12,9 @@
     "build": "vite build",
     "preview": "vite preview --host 0.0.0.0",
     "data:generate": "python scripts/generate-data.py",
-    "data:validate": "python scripts/validate-data.py"
+    "data:validate": "python scripts/validate-data.py",
+    "fonts:verify": "node scripts/verify-fonts.mjs",
+    "test": "node --test"
   },
   "dependencies": {
     "@iwsdk/core": "0.5.3",

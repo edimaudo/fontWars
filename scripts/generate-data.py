@@ -1,5 +1,6 @@
 import json
 from pathlib import Path
+from urllib.parse import quote
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -193,17 +194,17 @@ Noto Serif Sinhala
 Noto Serif Thai
 Noto Serif Tibetan
 Noto Serif Yezidi
-Adobe Caslon
-Aldus
-American Typewriter
-Amasis
-Aster
-Athelas
-ATF Garamond
-Baskerville
-Bell MT
-Bembo
-Berkeley Oldstyle
+Abhaya Libre
+Baskervville
+Cambo
+Gelasio
+Gowun Batang
+Inria Serif
+Kameron
+Nanum Myeongjo
+Neuton
+PT Serif
+STIX Two Text
 Benton Modern
 Bodoni
 Bodoni 72
@@ -732,30 +733,78 @@ sans = sans[:200]
 if len(serif) != 200 or len(sans) != 200:
     raise SystemExit(f'Need exactly 200 families per category; got Serif={len(serif)}, Sans-Serif={len(sans)}')
 
-serif_tips = [
-    'Look for small finishing strokes at the ends of the main letterforms; compare the feet on the stems.',
-    'Inspect the terminals: the strokes end in visible serifs rather than plain, unadorned cuts.',
-    'Notice how the small finishing strokes anchor letters such as I, T, E, and n.',
-    'Look at the contrast between thick and thin strokes and the finishing feet on vertical stems.',
-    'Examine letter terminals and bracketed joins; serif details remain visible even at smaller sizes.',
-    'Check the ends of the strokes for short crossbars or feet, especially on capitals and lowercase stems.'
+EASY_SERIF = {
+    'Abril Fatface', 'Arbutus Slab', 'Bodoni Moda', 'Bree Serif', 'Chonburi',
+    'Cinzel', 'Cinzel Decorative', 'DM Serif Display', 'Eagle Lake', 'Elsie',
+    'Gloock', 'Inknut Antiqua', 'Kotta One', 'Prata', 'Rakkas', 'Rozha One',
+    'Uncial Antiqua', 'Vidaloka', 'Young Serif', 'Zilla Slab', 'GFS Didot',
+}
+EASY_SANS = {
+    'Anton', 'Archivo Black', 'Audiowide', 'Bebas Neue', 'Black Ops One',
+    'Bowlby One SC', 'Bruno Ace', 'Dela Gothic One', 'DynaPuff', 'Galindo',
+    'Gugi', 'Michroma', 'Orbitron', 'Poetsen One', 'Russo One', 'Silkscreen',
+    'Staatliches', 'Unbounded', 'Viga', 'Odibee Sans', 'Phudu',
+}
+EXPERT_SERIF = {
+    'Abhaya Libre', 'Baskervville', 'Cardo', 'Crimson Pro', 'EB Garamond',
+    'Esteban', 'Fanwood Text', 'Gelasio', 'Gentium Book Plus', 'Ibarra Real Nova',
+    'Inria Serif', 'Kameron', 'Lora', 'Literata', 'Nanum Myeongjo', 'Neuton',
+    'Newsreader', 'Old Standard TT', 'PT Serif', 'STIX Two Text', 'Source Serif 4',
+    'Spectral', 'Tinos', 'Vollkorn',
+}
+EXPERT_SANS = {
+    'ABeeZee', 'Alegreya Sans', 'Arimo', 'Assistant', 'Atkinson Hyperlegible',
+    'Cabin', 'Cantarell', 'Fira Sans', 'Geist', 'IBM Plex Sans', 'Inter',
+    'Istok Web', 'Karla', 'Libre Franklin', 'Manrope', 'Open Sans', 'PT Sans',
+    'Public Sans', 'Red Hat Text', 'Roboto',
+}
+
+SERIF_CUES = [
+    ('Serif terminals', 'In {name}, compare the serif construction on I, T and E. Observe whether the finishing strokes are bracketed, sharp, or subtle.'),
+    ('Stroke contrast', 'In {name}, compare the thick and thin parts of O and e. Follow how the contrast changes around each curve.'),
+    ('Stress axis', 'In {name}, inspect O and o. Look for the direction of the thickest stroke and note the stress axis.'),
+    ('Apertures', 'In {name}, compare the openings in e, c and a. Notice how open or closed each aperture appears.'),
+    ('Lowercase construction', 'In {name}, inspect a and g. Identify each letter’s construction and compare the shape of its counters.'),
+    ('Bowl and stem joins', 'In {name}, compare b, d, p and q. Trace where each bowl meets its stem and how the join is formed.'),
+    ('Capital proportions', 'In {name}, compare H, M, N and W. Look at width, diagonal angles, and the balance of vertical strokes.'),
+    ('Shoulders and terminals', 'In {name}, inspect n, h, m and r. Compare the shoulders and the way each stroke ends.'),
+    ('X-height', 'In {name}, compare x-height with ascender height using x, a, h and l. Notice how the lowercase proportions affect texture.'),
+    ('Numeral design', 'In {name}, inspect 2, 3, 6 and 9. Compare the bowls, terminals, and alignment of the numerals.'),
+    ('Word texture', 'In {name}, study the repeated stems and counters in “minimum” and “Hamburgefontsiv”. Notice rhythm and spacing.'),
+    ('Punctuation and symbols', 'In {name}, inspect the ampersand, question mark and parentheses. Compare their stroke contrast and visual character with the letters.'),
 ]
-sans_tips = [
-    'Look for clean stroke terminals without small finishing serifs; the ends are generally plain.',
-    'Inspect letters such as I, T, E, and n: the strokes end cleanly rather than forming feet.',
-    'Notice the unadorned terminals and relatively simple joins between strokes.',
-    'Check the ends of vertical stems for the absence of small finishing strokes.',
-    'Focus on terminal shapes: they are clean cuts, not bracketed or unbracketed serifs.',
-    'Look for a simplified letter skeleton with no small finishing strokes at the stroke ends.'
+SANS_CUES = [
+    ('Terminal treatment', 'In {name}, compare the ends of I, T, E and n. Observe whether terminals are flat, angled, rounded, or otherwise shaped.'),
+    ('Stroke modulation', 'In {name}, compare the vertical and curved strokes in O, H and e. Notice whether stroke weight remains uniform or changes.'),
+    ('Apertures', 'In {name}, compare the openings in e, c and a. Notice how open or closed each aperture appears.'),
+    ('Lowercase construction', 'In {name}, inspect a and g. Identify each letter’s construction and compare the shape of its counters.'),
+    ('Counter shapes', 'In {name}, compare the counters in B, P, R, a and e. Notice how the negative spaces differ.'),
+    ('Capital proportions', 'In {name}, compare H, M, N and W. Look at width, diagonal angles, and the balance of vertical strokes.'),
+    ('Shoulders and joins', 'In {name}, inspect n, h, m and r. Compare the shoulders and how curved strokes connect to stems.'),
+    ('X-height', 'In {name}, compare x-height with ascender height using x, a, h and l. Notice how lowercase proportions affect texture.'),
+    ('Width and rhythm', 'In {name}, study the repeated stems and counters in “minimum” and “Hamburgefontsiv”. Notice rhythm and spacing.'),
+    ('Numeral design', 'In {name}, inspect 2, 3, 6 and 9. Compare the bowls, terminals, and alignment of the numerals.'),
+    ('Round forms', 'In {name}, compare O, o, C and G. Observe the shape of the curves and how they meet the terminals.'),
+    ('Punctuation and symbols', 'In {name}, inspect the ampersand, question mark and parentheses. Compare their shapes with the alphabetic forms.'),
 ]
+
 fonts = []
-for category, names, tips, prefix in [('Serif', serif, serif_tips, 'serif'), ('Sans-Serif', sans, sans_tips, 'sans')]:
+for category, names, cues, prefix in [('Serif', serif, SERIF_CUES, 'serif'), ('Sans-Serif', sans, SANS_CUES, 'sans')]:
+    easy = EASY_SERIF if category == 'Serif' else EASY_SANS
+    expert = EXPERT_SERIF if category == 'Serif' else EXPERT_SANS
     for index, name in enumerate(names, 1):
+        focus, prompt = cues[(index - 1) % len(cues)]
+        tier = 1 if name in easy else 3 if name in expert else 2
         fonts.append({
             'id': f'{prefix}_{index}',
             'name': name,
             'category': category,
-            'anatomicalTip': tips[(index - 1) % len(tips)],
+            'provider': 'Google Fonts',
+            'familyPageUrl': 'https://fonts.google.com/specimen/' + quote(name, safe=''),
+            'licenseNote': 'Check the family-specific license in the upstream Google Fonts repository. Font files are loaded from Google Fonts and are not redistributed with this app.',
+            'challengeTier': tier,
+            'anatomicalFocus': focus,
+            'anatomicalTip': prompt.format(name=name),
         })
 assert len(fonts) == 400
 assert len({item['name'].casefold() for item in fonts}) == 400

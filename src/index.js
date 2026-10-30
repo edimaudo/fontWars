@@ -53,6 +53,7 @@ function createTextMesh(initialText, options = {}) {
   let currentText = initialText;
   function redraw(nextText = currentText, nextOptions = {}) {
     currentText = String(nextText ?? '');
+    mesh.userData.currentText = currentText;
     const current = { ...defaults, ...nextOptions };
     context.clearRect(0, 0, canvas.width, canvas.height);
     context.font = `${current.weight} ${current.fontSize}px ${current.fontFamily}`;
@@ -114,11 +115,14 @@ class FontWarsApp {
   constructor(world) {
     this.world = world;
     this.views = new SpatialViewStateManager(world.scene);
-    this.settings = { sound: true, haptics: true, difficulty: 'STANDARD' };
+    this.settings = { sound: true, haptics: true, difficulty: 'STANDARD', gameMode: 'CLASSIFICATION' };
     this.game = new FontGameSystem(this);
     this.fontLoadPromises = new Map();
     this.libraryPage = 0;
-    this.libraryPageSize = 8;
+    this.libraryPageSize = 6;
+    this.libraryFilter = 'ALL';
+    this.libraryGlyphMode = 'AaGg';
+    this.librarySelectedFontId = null;
     this.activeSpecimenFontId = null;
     this.audioContext = null;
     this.libraryCards = [];
@@ -222,65 +226,155 @@ class FontWarsApp {
   }
 
   buildLandingView() {
-    const view = this.createView(ViewState.LANDING, 2.9, 1.9, -2.25);
+    const view = this.createView(ViewState.LANDING, 2.9, 2.8, -2.25);
     this.addHeading(view, 'FONT WARS', 'TYPOGRAPHIC RECOGNITION TRAINING');
     this.addLabel(view, '400 TYPEFACES  ·  10 ROUNDS  ·  ONE SHARP EYE', {
       width: 2.6, height: 0.13, fontSize: 35, color: '#8eb6ff', weight: 600,
       x: 0.02, y: 0.26,
     });
     this.makeSpatialButton(view, {
-      label: 'START BATTLE', y: -0.12, width: 1.72, height: 0.31, fontSize: 59,
+      label: 'START BATTLE', y: -0.08, width: 1.72, height: 0.31, fontSize: 59,
       color: '#234f91', activate: () => this.game.start(),
     });
+    this.gameModeButton = this.makeSpatialButton(view, {
+      label: '', y: -0.45, width: 1.95, height: 0.27, fontSize: 43,
+      activate: () => {
+        this.settings.gameMode = this.settings.gameMode === 'CLASSIFICATION' ? 'DUEL' : 'CLASSIFICATION';
+        this.refreshGameModeLabel();
+      },
+    });
+    this.gameModeDescription = this.addLabel(view, '', {
+      width: 2.4, height: 0.10, fontSize: 28, color: PALETTE.muted, weight: 500,
+      x: 0.02, y: -0.68,
+    });
     this.makeSpatialButton(view, {
-      label: 'FONT LIBRARY', y: -0.51, width: 1.72, height: 0.29, fontSize: 53,
+      label: 'FONT LIBRARY', y: -0.98, width: 1.72, height: 0.26, fontSize: 50,
       activate: () => { this.libraryPage = 0; this.updateLibraryPage(); this.views.transition(ViewState.LIBRARY); },
     });
     this.makeSpatialButton(view, {
-      label: 'SETTINGS', y: -0.87, width: 1.72, height: 0.29, fontSize: 53,
+      label: 'SETTINGS', y: -1.31, width: 1.72, height: 0.26, fontSize: 50,
       activate: () => this.views.transition(ViewState.SETTINGS),
     });
+    this.refreshGameModeLabel();
+  }
+
+  refreshGameModeLabel() {
+    const duel = this.settings.gameMode === 'DUEL';
+    this.gameModeButton?.userData.redrawLabel(`MODE: ${duel ? 'TYPEFACE DUEL' : 'CLASSIFICATION'}`, { fontSize: 39 });
+    if (this.gameModeDescription) {
+      updateText(this.gameModeDescription, duel
+        ? 'Match the named typeface from two specimens.'
+        : 'Identify each typeface as Serif or Sans-Serif.', {
+        fontSize: 28, color: PALETTE.muted,
+      });
+    }
   }
 
   buildLibraryView() {
-    const view = this.createView(ViewState.LIBRARY, 3.2, 2.12, -2.45);
+    const view = this.createView(ViewState.LIBRARY, 3.6, 2.28, -2.45);
     this.addLabel(view, 'TYPEFACE LIBRARY', {
-      width: 2.7, height: 0.21, fontSize: 76, color: PALETTE.white, weight: 760, x: 0, y: 0.84,
+      width: 2.7, height: 0.21, fontSize: 76, color: PALETTE.white, weight: 760, x: 0, y: 0.96,
     });
     this.libraryPageLabel = this.addLabel(view, '', {
-      width: 1.7, height: 0.13, fontSize: 39, color: PALETTE.muted, weight: 500, x: 0, y: 0.66,
+      width: 1.25, height: 0.11, fontSize: 30, color: PALETTE.muted, weight: 500, x: -0.08, y: 0.73,
     });
-    const xs = [-1.14, -0.38, 0.38, 1.14];
-    const ys = [0.29, -0.32];
-    for (let i = 0; i < this.libraryPageSize; i += 1) {
+    this.libraryFilterButton = this.makeSpatialButton(view, {
+      label: 'SHOW: ALL', x: -1.22, y: 0.72, width: 0.72, height: 0.19, fontSize: 34,
+      activate: () => {
+        const filters = ['ALL', 'SERIF', 'SANS-SERIF'];
+        this.libraryFilter = filters[(filters.indexOf(this.libraryFilter) + 1) % filters.length];
+        this.libraryPage = 0;
+        this.librarySelectedFontId = null;
+        this.updateLibraryPage();
+      },
+    });
+
+    const cardXs = [-1.23, -0.68, -0.13];
+    const cardYs = [0.31, -0.26];
+    for (let index = 0; index < this.libraryPageSize; index += 1) {
       const card = this.makeSpatialButton(view, {
-        label: 'Loading typeface', x: xs[i % 4], y: ys[Math.floor(i / 4)],
-        width: 0.69, height: 0.53, fontSize: 40, fontWeight: 600, color: '#162033',
-        activate: () => this.previewLibraryFont(i),
+        label: '', x: cardXs[index % 3], y: cardYs[Math.floor(index / 3)],
+        width: 0.5, height: 0.48, fontSize: 28, fontWeight: 550, color: '#162033',
+        activate: () => this.previewLibraryFont(index),
       });
+      const specimen = createTextMesh('···', {
+        width: 0.45, height: 0.19, fontSize: 55, fontFamily: FONT_STACK,
+        color: '#f5f7fb', weight: 550, padding: 8,
+      });
+      specimen.position.set(0, 0.055, 0.049);
+      const title = createTextMesh('Loading', {
+        width: 0.46, height: 0.09, fontSize: 24, fontFamily: FONT_STACK,
+        color: '#dce6f7', weight: 650, padding: 8,
+      });
+      title.position.set(0, -0.105, 0.049);
+      const category = createTextMesh('', {
+        width: 0.46, height: 0.055, fontSize: 19, fontFamily: FONT_STACK,
+        color: '#8eb6ff', weight: 560, padding: 8,
+      });
+      category.position.set(0, -0.177, 0.049);
+      card.add(specimen, title, category);
+      card.userData.libraryText = { specimen, title, category };
       card.userData.redrawLabel('');
       this.libraryCards.push(card);
     }
-    this.librarySelectedInfo = this.addLabel(view, 'Select a typeface card to inspect its anatomical cues.', {
-      width: 2.9, height: 0.16, fontSize: 31, color: '#8eb6ff', weight: 500, x: 0, y: -0.68,
+
+    this.libraryDetailName = this.addLabel(view, 'SELECT A TYPEFACE', {
+      width: 1.42, height: 0.15, fontSize: 48, color: PALETTE.white, weight: 700,
+      x: 0.91, y: 0.53,
     });
+    this.libraryDetailMeta = this.addLabel(view, '400 FONT RECORDS  ·  200 EACH CATEGORY', {
+      width: 1.42, height: 0.09, fontSize: 27, color: '#8eb6ff', weight: 550,
+      x: 0.91, y: 0.36,
+    });
+    this.libraryPreviewSpecimen = this.addLabel(view, 'AaGg Rr', {
+      width: 1.43, height: 0.3, fontSize: 148, color: PALETTE.white,
+      weight: 500, x: 0.91, y: 0.04, fontFamily: FONT_STACK, padding: 12,
+    });
+    this.libraryGlyphButtons = [
+      this.makeSpatialButton(view, {
+        label: 'AaGg', x: 0.43, y: -0.23, width: 0.42, height: 0.17, fontSize: 31,
+        activate: () => this.setLibraryGlyphMode('AaGg'),
+      }),
+      this.makeSpatialButton(view, {
+        label: 'R Q &', x: 0.91, y: -0.23, width: 0.42, height: 0.17, fontSize: 29,
+        activate: () => this.setLibraryGlyphMode('R Q &'),
+      }),
+      this.makeSpatialButton(view, {
+        label: '0–9', x: 1.39, y: -0.23, width: 0.34, height: 0.17, fontSize: 31,
+        activate: () => this.setLibraryGlyphMode('0123456789'),
+      }),
+    ];
+    this.libraryGlyphButtons[0].userData.glyphMode = 'AaGg';
+    this.libraryGlyphButtons[1].userData.glyphMode = 'R Q &';
+    this.libraryGlyphButtons[2].userData.glyphMode = '0123456789';
+    this.librarySelectedInfo = this.addLabel(view, 'Choose a typeface to examine its letterforms and anatomical cues.', {
+      width: 1.48, height: 0.43, fontSize: 30, color: '#bcd3ff', weight: 500,
+      x: 0.91, y: -0.60, lineHeight: 1.18, verticalAlign: 'top', align: 'left', padding: 8,
+    });
+
     this.libraryPrevious = this.makeSpatialButton(view, {
-      label: 'PREVIOUS', x: -0.96, y: -0.91, width: 0.78, height: 0.22, fontSize: 39,
+      label: 'PREVIOUS', x: -1.09, y: -0.94, width: 0.64, height: 0.19, fontSize: 32,
       activate: () => { this.libraryPage = Math.max(0, this.libraryPage - 1); this.updateLibraryPage(); },
     });
     this.libraryNext = this.makeSpatialButton(view, {
-      label: 'NEXT', x: 0, y: -0.91, width: 0.7, height: 0.22, fontSize: 39,
+      label: 'NEXT', x: -0.38, y: -0.94, width: 0.52, height: 0.19, fontSize: 33,
       activate: () => {
-        const maxPage = Math.ceil(this.game.fonts.length / this.libraryPageSize) - 1;
+        const maxPage = Math.max(0, Math.ceil(this.getFilteredLibraryFonts().length / this.libraryPageSize) - 1);
         this.libraryPage = Math.min(maxPage, this.libraryPage + 1);
         this.updateLibraryPage();
       },
     });
     this.makeSpatialButton(view, {
-      label: 'BACK', x: 0.96, y: -0.91, width: 0.78, height: 0.22, fontSize: 39,
+      label: 'BACK', x: 0.43, y: -0.94, width: 0.56, height: 0.19, fontSize: 33,
       activate: () => this.views.transition(ViewState.LANDING),
     });
     this.updateLibraryPage();
+  }
+
+  getFilteredLibraryFonts() {
+    if (this.libraryFilter === 'SERIF') return this.game.fonts.filter((font) => font.category === 'Serif');
+    if (this.libraryFilter === 'SANS-SERIF') return this.game.fonts.filter((font) => font.category === 'Sans-Serif');
+    return this.game.fonts;
   }
 
   updateButtonDisabled(button, disabled) {
@@ -291,14 +385,19 @@ class FontWarsApp {
   }
 
   updateLibraryPage() {
-    if (!this.game.fonts.length || !this.libraryCards.length) return;
-    const totalPages = Math.ceil(this.game.fonts.length / this.libraryPageSize);
+    const filteredFonts = this.getFilteredLibraryFonts();
+    if (!filteredFonts.length || !this.libraryCards.length) return;
+    const totalPages = Math.max(1, Math.ceil(filteredFonts.length / this.libraryPageSize));
+    this.libraryPage = Math.min(this.libraryPage, totalPages - 1);
     const start = this.libraryPage * this.libraryPageSize;
-    updateText(this.libraryPageLabel, `PAGE ${this.libraryPage + 1} / ${totalPages}  ·  400 TYPEFACES`, { fontSize: 36 });
-    this.libraryPageFonts = this.game.fonts.slice(start, start + this.libraryPageSize);
+    this.libraryPageFonts = filteredFonts.slice(start, start + this.libraryPageSize);
+    updateText(this.libraryPageLabel, `PAGE ${this.libraryPage + 1} / ${totalPages}  ·  ${filteredFonts.length} FONTS`, { fontSize: 30 });
+    this.libraryFilterButton?.userData.redrawLabel(`SHOW: ${this.libraryFilter}`, { fontSize: 29 });
+
     this.libraryCards.forEach((button, index) => {
       const font = this.libraryPageFonts[index];
       const state = button.userData.spatialButton;
+      const textMeshes = button.userData.libraryText;
       if (!font) {
         button.visible = false;
         state.disabled = true;
@@ -306,29 +405,85 @@ class FontWarsApp {
       }
       button.visible = true;
       state.disabled = false;
-      state.lockedColor = null;
-      const fallback = font.category === 'Serif' ? 'Georgia, "Times New Roman", serif' : 'Arial, Helvetica, sans-serif';
-      const drawCard = () => button.userData.redrawLabel(`${font.name}\n${font.category}\n${font.anatomicalTip}`, {
-        fontSize: 35, color: '#e9effb', fontFamily: `"${font.name}", ${fallback}`,
-        weight: 550, padding: 22, lineHeight: 1.25,
-      });
-      drawCard();
-      this.loadFontFamily(font.name).then(() => {
-        if (this.views.current === ViewState.LIBRARY && this.libraryPageFonts[index]?.id === font.id) drawCard();
+      state.lockedColor = font.id === this.librarySelectedFontId ? 'selected' : null;
+      state.visualState = null;
+      updateText(textMeshes.specimen, 'LOADING', { fontSize: 23, color: PALETTE.muted, fontFamily: FONT_STACK });
+      updateText(textMeshes.title, font.name, { fontSize: 23, color: '#dce6f7', fontFamily: FONT_STACK });
+      updateText(textMeshes.category, font.category.toUpperCase(), { fontSize: 18, color: '#8eb6ff', fontFamily: FONT_STACK });
+      this.loadFontFamily(font.name).then((available) => {
+        if (this.views.current !== ViewState.LIBRARY || this.libraryPageFonts[index]?.id !== font.id) return;
+        if (available) {
+          updateText(textMeshes.specimen, 'AaGg', {
+            fontSize: 53, color: '#f5f7fb', fontFamily: `"${font.name}"`, weight: 520,
+          });
+        } else {
+          updateText(textMeshes.specimen, 'UNAVAILABLE', {
+            fontSize: 21, color: PALETTE.red, fontFamily: FONT_STACK, weight: 650,
+          });
+        }
       });
     });
+
     this.updateButtonDisabled(this.libraryPrevious, this.libraryPage === 0);
     this.updateButtonDisabled(this.libraryNext, this.libraryPage >= totalPages - 1);
-    updateText(this.librarySelectedInfo, 'Select a typeface card to inspect its anatomical cues.', { fontSize: 31, color: '#8eb6ff' });
+    const selected = this.libraryPageFonts.find((font) => font.id === this.librarySelectedFontId) || this.libraryPageFonts[0];
+    this.previewLibraryFont(this.libraryPageFonts.indexOf(selected));
   }
 
   previewLibraryFont(index) {
     const font = this.libraryPageFonts?.[index];
     if (!font) return;
-    updateText(this.librarySelectedInfo, `${font.name}  ·  ${font.category}\n${font.anatomicalTip}`, {
-      fontSize: 35, color: '#bcd3ff', weight: 550, lineHeight: 1.25,
+    this.librarySelectedFontId = font.id;
+    this.libraryCards.forEach((card, cardIndex) => {
+      const current = this.libraryPageFonts[cardIndex];
+      if (current) {
+        card.userData.spatialButton.lockedColor = current.id === font.id ? 'selected' : null;
+        card.userData.spatialButton.visualState = null;
+      }
     });
-    this.loadFontFamily(font.name);
+    updateText(this.libraryDetailName, font.name, {
+      fontSize: font.name.length > 18 ? 39 : 47, color: PALETTE.white, weight: 720,
+    });
+    const challengeLabel = { 1: 'EASY', 2: 'CORE', 3: 'EXPERT' }[font.challengeTier];
+    updateText(this.libraryDetailMeta, `${font.category.toUpperCase()}  ·  ${challengeLabel}  ·  GOOGLE FONTS`, {
+      fontSize: 26, color: '#8eb6ff', weight: 600,
+    });
+    updateText(this.libraryPreviewSpecimen, 'LOADING TYPEFACE', {
+      fontSize: 68, fontFamily: FONT_STACK, color: PALETTE.muted, weight: 550,
+    });
+    updateText(this.librarySelectedInfo, `${font.anatomicalFocus.toUpperCase()}\n${font.anatomicalTip}`, {
+      fontSize: 27, color: '#bcd3ff', weight: 520, lineHeight: 1.15, align: 'left',
+    });
+    this.loadFontFamily(font.name).then((available) => {
+      if (this.views.current !== ViewState.LIBRARY || this.librarySelectedFontId !== font.id) return;
+      if (available) {
+        updateText(this.libraryPreviewSpecimen, this.libraryGlyphMode, {
+          fontSize: this.libraryGlyphMode.length > 7 ? 94 : 148,
+          fontFamily: `"${font.name}"`, color: PALETTE.white, weight: 500,
+        });
+      } else {
+        updateText(this.libraryPreviewSpecimen, 'FONT UNAVAILABLE', {
+          fontSize: 68, fontFamily: FONT_STACK, color: PALETTE.red, weight: 600,
+        });
+      }
+    });
+  }
+
+  setLibraryGlyphMode(mode) {
+    this.libraryGlyphMode = mode;
+    const font = this.game.fonts.find((item) => item.id === this.librarySelectedFontId);
+    if (!font) return;
+    this.libraryGlyphButtons.forEach((button) => {
+      button.userData.spatialButton.lockedColor = button.userData.glyphMode === mode ? 'selected' : null;
+      button.userData.spatialButton.visualState = null;
+    });
+    this.loadFontFamily(font.name).then((available) => {
+      if (!available || this.librarySelectedFontId !== font.id) return;
+      updateText(this.libraryPreviewSpecimen, mode, {
+        fontSize: mode.length > 7 ? 94 : 148,
+        fontFamily: `"${font.name}"`, color: PALETTE.white, weight: 500,
+      });
+    });
   }
 
   buildSettingsView() {
@@ -349,15 +504,19 @@ class FontWarsApp {
       activate: () => { this.settings.haptics = !this.settings.haptics; this.refreshSettingsLabels(); },
     });
     this.difficultyButton = this.makeSpatialButton(view, {
-      label: '', y: -0.45, width: 1.75, height: 0.27, fontSize: 49,
+      label: '', y: -0.37, width: 1.75, height: 0.27, fontSize: 49,
       activate: () => {
         const modes = ['EASY', 'STANDARD', 'EXPERT'];
         this.settings.difficulty = modes[(modes.indexOf(this.settings.difficulty) + 1) % modes.length];
         this.refreshSettingsLabels();
       },
     });
+    this.difficultyDescription = this.addLabel(view, '', {
+      width: 2.35, height: 0.15, fontSize: 27, color: PALETTE.muted, weight: 500,
+      x: 0, y: -0.64,
+    });
     this.makeSpatialButton(view, {
-      label: 'BACK', y: -0.83, width: 1.12, height: 0.26, fontSize: 48,
+      label: 'BACK', y: -0.88, width: 1.12, height: 0.21, fontSize: 42,
       activate: () => this.views.transition(ViewState.LANDING),
     });
     this.refreshSettingsLabels();
@@ -367,12 +526,20 @@ class FontWarsApp {
     this.soundButton?.userData.redrawLabel(`SOUND: ${this.settings.sound ? 'ON' : 'OFF'}`, { fontSize: 50 });
     this.hapticsButton?.userData.redrawLabel(`HAPTICS: ${this.settings.haptics ? 'ON' : 'OFF'}`, { fontSize: 50 });
     this.difficultyButton?.userData.redrawLabel(`DIFFICULTY: ${this.settings.difficulty}`, { fontSize: 42 });
+    const descriptions = {
+      EASY: 'Tier 1 typefaces  ·  shorter specimens',
+      STANDARD: 'All challenge tiers  ·  varied specimens',
+      EXPERT: 'Tier 3 typefaces  ·  mixed glyph study',
+    };
+    if (this.difficultyDescription) {
+      updateText(this.difficultyDescription, descriptions[this.settings.difficulty], { fontSize: 27, color: PALETTE.muted });
+    }
   }
 
   buildGameView() {
-    const view = this.createView(ViewState.GAME_LOOP, 2.9, 2.08, -2.35);
+    const view = this.createView(ViewState.GAME_LOOP, 2.9, 2.18, -2.35);
     this.gameHeading = this.addLabel(view, 'TYPEFACE CLASSIFICATION', {
-      width: 2.6, height: 0.21, fontSize: 67, color: PALETTE.white, weight: 760, x: 0, y: 0.82,
+      width: 2.0, height: 0.21, fontSize: 58, color: PALETTE.white, weight: 760, x: 0, y: 0.82,
     });
     this.roundLabel = this.addLabel(view, 'ROUND 1 / 10', {
       width: 1.0, height: 0.13, fontSize: 43, color: PALETTE.muted, weight: 550, x: -0.82, y: 0.62,
@@ -380,22 +547,19 @@ class FontWarsApp {
     this.scoreLabel = this.addLabel(view, 'SCORE 0', {
       width: 0.96, height: 0.13, fontSize: 43, color: '#8eb6ff', weight: 550, x: 0.87, y: 0.62,
     });
+    this.exitGameButton = this.makeSpatialButton(view, {
+      label: 'EXIT', x: 1.19, y: 0.88, width: 0.40, height: 0.17, fontSize: 27,
+      color: '#27364d', activate: () => this.game.cancel(),
+    });
+
+    // Classification round content.
     this.questionLabel = this.addLabel(view, 'SERIF OR SANS-SERIF?', {
       width: 2.1, height: 0.18, fontSize: 53, color: PALETTE.muted, weight: 520, x: 0, y: 0.39,
     });
     this.specimen = this.addLabel(view, 'TYPOGRAPHY', {
       width: 2.38, height: 0.48, fontSize: 210, color: PALETTE.white, weight: 600,
-      x: 0, y: 0.03, fontFamily: 'Georgia, serif', padding: 16,
+      x: 0, y: 0.03, fontFamily: FONT_STACK, padding: 16,
     });
-    this.anatomyTip = this.addLabel(view, '', {
-      width: 2.6, height: 0.31, fontSize: 37, color: '#c6f5e4', weight: 520,
-      x: 0, y: 0.43, verticalAlign: 'middle', lineHeight: 1.15,
-    });
-    this.anatomyTip.visible = false;
-    this.feedbackLabel = this.addLabel(view, '', {
-      width: 2.55, height: 0.17, fontSize: 48, color: PALETTE.white, weight: 750, x: 0, y: -0.36,
-    });
-    this.feedbackLabel.visible = false;
     this.serifAnswer = this.makeSpatialButton(view, {
       label: 'SERIF', x: -0.73, y: -0.73, width: 1.12, height: 0.31, fontSize: 61,
       activate: () => this.game.answer('Serif'),
@@ -404,31 +568,185 @@ class FontWarsApp {
       label: 'SANS-SERIF', x: 0.73, y: -0.73, width: 1.35, height: 0.31, fontSize: 49,
       activate: () => this.game.answer('Sans-Serif'),
     });
+
+    // Typeface Duel round content. Both specimens show the same text so the player
+    // must recognize the requested family rather than compare different words.
+    this.duelPromptLabel = this.addLabel(view, 'FIND THIS TYPEFACE', {
+      width: 2.4, height: 0.13, fontSize: 45, color: PALETTE.muted, weight: 560, x: 0, y: 0.39,
+    });
+    this.duelTargetName = this.addLabel(view, 'TARGET TYPEFACE', {
+      width: 2.4, height: 0.19, fontSize: 63, color: '#8eb6ff', weight: 760, x: 0, y: 0.18,
+    });
+    this.duelLeftPanel = createPanel(1.13, 0.58, '#142033');
+    this.duelLeftPanel.position.set(-0.69, -0.22, 0.035);
+    view.add(this.duelLeftPanel);
+    this.duelRightPanel = createPanel(1.13, 0.58, '#142033');
+    this.duelRightPanel.position.set(0.69, -0.22, 0.035);
+    view.add(this.duelRightPanel);
+    this.duelLeftTag = this.addLabel(view, 'A', {
+      width: 0.22, height: 0.08, fontSize: 29, color: '#8eb6ff', weight: 750, x: -0.69, y: -0.01, z: 0.13,
+    });
+    this.duelRightTag = this.addLabel(view, 'B', {
+      width: 0.22, height: 0.08, fontSize: 29, color: '#8eb6ff', weight: 750, x: 0.69, y: -0.01, z: 0.13,
+    });
+    this.duelLeftSpecimen = this.addLabel(view, 'Hamburgefontsiv', {
+      width: 1.02, height: 0.26, fontSize: 64, color: PALETTE.white, weight: 500,
+      x: -0.69, y: -0.22, z: 0.13, fontFamily: FONT_STACK, padding: 8,
+    });
+    this.duelRightSpecimen = this.addLabel(view, 'Hamburgefontsiv', {
+      width: 1.02, height: 0.26, fontSize: 64, color: PALETTE.white, weight: 500,
+      x: 0.69, y: -0.22, z: 0.13, fontFamily: FONT_STACK, padding: 8,
+    });
+    this.duelLeftAnswer = this.makeSpatialButton(view, {
+      label: 'CHOOSE A', x: -0.69, y: -0.72, width: 1.12, height: 0.29, fontSize: 43,
+      activate: () => this.game.answerDuel('LEFT'),
+    });
+    this.duelRightAnswer = this.makeSpatialButton(view, {
+      label: 'CHOOSE B', x: 0.69, y: -0.72, width: 1.12, height: 0.29, fontSize: 43,
+      activate: () => this.game.answerDuel('RIGHT'),
+    });
+
+    this.anatomyTip = this.addLabel(view, '', {
+      width: 2.6, height: 0.31, fontSize: 37, color: '#c6f5e4', weight: 520,
+      x: 0, y: 0.43, verticalAlign: 'middle', lineHeight: 1.15,
+    });
+    this.feedbackLabel = this.addLabel(view, '', {
+      width: 2.55, height: 0.17, fontSize: 48, color: PALETTE.white, weight: 750, x: 0, y: -0.48,
+    });
+    this.retryButton = this.makeSpatialButton(view, {
+      label: 'RETRY', x: -0.68, y: -0.73, width: 1.08, height: 0.31, fontSize: 52,
+      color: '#234f91', activate: () => this.game.start(),
+    });
+    this.homeButton = this.makeSpatialButton(view, {
+      label: 'MAIN MENU', x: 0.68, y: -0.73, width: 1.12, height: 0.31, fontSize: 45,
+      activate: () => this.views.transition(ViewState.LANDING),
+    });
+
+    this.retryButton.visible = false;
+    this.homeButton.visible = false;
+    this.exitGameButton.visible = true;
+    this.setClassificationVisible(false);
+    this.setDuelVisible(false);
+    this.anatomyTip.visible = false;
+    this.feedbackLabel.visible = false;
+    this.setAnswerButtonState(this.serifAnswer, { disabled: true, color: null });
+    this.setAnswerButtonState(this.sansAnswer, { disabled: true, color: null });
+    this.setAnswerButtonState(this.duelLeftAnswer, { disabled: true, color: null });
+    this.setAnswerButtonState(this.duelRightAnswer, { disabled: true, color: null });
   }
 
-  renderRound({ font, word, number, total, score }) {
+  setClassificationVisible(visible) {
+    for (const item of [this.questionLabel, this.specimen, this.serifAnswer, this.sansAnswer]) {
+      if (item) item.visible = Boolean(visible);
+    }
+  }
+
+  setDuelVisible(visible) {
+    for (const item of [
+      this.duelPromptLabel, this.duelTargetName, this.duelLeftPanel, this.duelRightPanel,
+      this.duelLeftTag, this.duelRightTag, this.duelLeftSpecimen, this.duelRightSpecimen,
+      this.duelLeftAnswer, this.duelRightAnswer,
+    ]) {
+      if (item) item.visible = Boolean(visible);
+    }
+  }
+
+  showPreparingState(difficulty, gameMode = 'CLASSIFICATION') {
+    updateText(this.roundLabel, 'VERIFYING TYPEFACES', { fontSize: 37, color: PALETTE.muted });
+    updateText(this.scoreLabel, 'SCORE 0', { fontSize: 43, color: '#8eb6ff' });
+    this.retryButton.visible = false;
+    this.homeButton.visible = false;
+    this.exitGameButton.visible = true;
+    this.setClassificationVisible(false);
+    this.setDuelVisible(false);
+    this.anatomyTip.visible = false;
+    this.feedbackLabel.visible = true;
+    updateText(this.gameHeading, gameMode === 'DUEL' ? 'TYPEFACE DUEL' : 'TYPEFACE CLASSIFICATION', { fontSize: 65 });
+    updateText(this.questionLabel, `${difficulty} MODE  ·  PREPARING SESSION`, { fontSize: 45, color: PALETTE.muted });
+    this.specimen.visible = true;
+    updateText(this.specimen, 'VERIFYING\nTYPEFACES', {
+      fontSize: 142, fontFamily: FONT_STACK, color: PALETTE.white, weight: 700,
+    });
+    updateText(this.feedbackLabel, 'CHECKING GOOGLE FONTS AVAILABILITY', {
+      fontSize: 35, color: '#8eb6ff', weight: 620,
+    });
+  }
+
+  showFontPreparationError(message) {
+    updateText(this.roundLabel, 'FONT VERIFICATION', { fontSize: 37, color: PALETTE.red });
+    updateText(this.scoreLabel, 'NOT STARTED', { fontSize: 38, color: PALETTE.muted });
+    this.setClassificationVisible(false);
+    this.setDuelVisible(false);
+    this.retryButton.visible = true;
+    this.homeButton.visible = true;
+    this.exitGameButton.visible = false;
+    this.specimen.visible = false;
+    this.anatomyTip.visible = false;
+    this.questionLabel.visible = true;
+    this.feedbackLabel.visible = true;
+    updateText(this.questionLabel, 'FONT VERIFICATION FAILED', { fontSize: 49, color: PALETTE.red });
+    updateText(this.feedbackLabel, `${message}\nConnect to the internet and retry. No substitute typeface will be shown.`, {
+      fontSize: 31, color: PALETTE.white, weight: 550, lineHeight: 1.2,
+    });
+  }
+
+  renderRound({ font, word, number, total, score, specimenFontSize, difficulty }) {
+    this.retryButton.visible = false;
+    this.homeButton.visible = false;
+    this.exitGameButton.visible = true;
+    this.setDuelVisible(false);
+    this.setClassificationVisible(true);
     this.activeSpecimenFontId = font.id;
     this.currentRoundFont = font;
     this.currentRoundWord = word;
+    updateText(this.gameHeading, 'TYPEFACE CLASSIFICATION', { fontSize: 65 });
     updateText(this.roundLabel, `ROUND ${number} / ${total}`, { fontSize: 43, color: PALETTE.muted });
     updateText(this.scoreLabel, `SCORE ${score}`, { fontSize: 43, color: '#8eb6ff' });
-    updateText(this.questionLabel, 'SERIF OR SANS-SERIF?', { fontSize: 53, color: PALETTE.muted });
-    const fallback = font.category === 'Serif' ? 'Georgia, "Times New Roman", serif' : 'Arial, Helvetica, sans-serif';
+    updateText(this.questionLabel, `${difficulty}  ·  SERIF OR SANS-SERIF?`, { fontSize: 45, color: PALETTE.muted });
     updateText(this.specimen, word, {
-      fontSize: 210, fontFamily: `"${font.name}", ${fallback}`, color: PALETTE.white, weight: 550,
+      fontSize: specimenFontSize, fontFamily: `"${font.name}"`, color: PALETTE.white, weight: 500,
+      lineHeight: 1.16,
     });
     this.specimen.visible = true;
-    this.questionLabel.visible = true;
     this.anatomyTip.visible = false;
     this.feedbackLabel.visible = false;
     this.setAnswerButtonState(this.serifAnswer, { disabled: false, color: null });
     this.setAnswerButtonState(this.sansAnswer, { disabled: false, color: null });
   }
 
+  renderDuelRound({ target, left, right, word, number, total, score, specimenFontSize, difficulty }) {
+    this.retryButton.visible = false;
+    this.homeButton.visible = false;
+    this.exitGameButton.visible = true;
+    this.setClassificationVisible(false);
+    this.setDuelVisible(true);
+    this.currentDuel = { target, left, right, word };
+    updateText(this.gameHeading, 'TYPEFACE DUEL', { fontSize: 68 });
+    updateText(this.roundLabel, `ROUND ${number} / ${total}`, { fontSize: 43, color: PALETTE.muted });
+    updateText(this.scoreLabel, `SCORE ${score}`, { fontSize: 43, color: '#8eb6ff' });
+    updateText(this.duelPromptLabel, `${difficulty}  ·  FIND THIS TYPEFACE`, { fontSize: 41, color: PALETTE.muted });
+    updateText(this.duelTargetName, target.name.toUpperCase(), {
+      fontSize: target.name.length > 18 ? 48 : 61, color: '#8eb6ff', weight: 780,
+    });
+    updateText(this.duelLeftTag, 'A', { fontSize: 29, color: '#8eb6ff', weight: 750 });
+    updateText(this.duelRightTag, 'B', { fontSize: 29, color: '#8eb6ff', weight: 750 });
+    updateText(this.duelLeftSpecimen, word, {
+      fontSize: specimenFontSize, fontFamily: `"${left.name}"`, color: PALETTE.white, weight: 500,
+    });
+    updateText(this.duelRightSpecimen, word, {
+      fontSize: specimenFontSize, fontFamily: `"${right.name}"`, color: PALETTE.white, weight: 500,
+    });
+    this.anatomyTip.visible = false;
+    this.feedbackLabel.visible = false;
+    this.setAnswerButtonState(this.duelLeftAnswer, { disabled: false, color: null });
+    this.setAnswerButtonState(this.duelRightAnswer, { disabled: false, color: null });
+  }
+
   redrawSpecimen(font) {
-    const fallback = font.category === 'Serif' ? 'Georgia, "Times New Roman", serif' : 'Arial, Helvetica, sans-serif';
+    if (!font || !this.currentRoundWord) return;
     updateText(this.specimen, this.currentRoundWord, {
-      fontSize: 210, fontFamily: `"${font.name}", ${fallback}`, color: PALETTE.white, weight: 550,
+      fontSize: this.game.rules.specimenFontSize,
+      fontFamily: `"${font.name}"`, color: PALETTE.white, weight: 500,
     });
   }
 
@@ -439,17 +757,19 @@ class FontWarsApp {
     state.visualState = null;
   }
 
-  showAnswerFeedback({ chosen, correctCategory, isCorrect, tip, score }) {
+  showAnswerFeedback({ chosen, correctCategory, isCorrect, tip, focus, fontName, score }) {
     this.specimen.visible = true;
     this.questionLabel.visible = false;
     this.anatomyTip.visible = true;
     this.feedbackLabel.visible = true;
-    updateText(this.anatomyTip, `ANATOMY  ·  ${tip}`, {
-      fontSize: 37, color: '#baf2dd', weight: 520, lineHeight: 1.13,
+    updateText(this.anatomyTip, `${focus.toUpperCase()}  ·  ${tip}`, {
+      fontSize: 34, color: '#baf2dd', weight: 520, lineHeight: 1.13,
     });
-    const feedback = isCorrect ? 'CORRECT  ·  WELL SPOTTED' : `NOT QUITE  ·  ${correctCategory.toUpperCase()}`;
+    const feedback = isCorrect
+      ? `CORRECT  ·  ${fontName}`
+      : `NOT QUITE  ·  ${fontName}  ·  ${correctCategory.toUpperCase()}`;
     updateText(this.feedbackLabel, feedback, {
-      fontSize: 45, color: isCorrect ? PALETTE.green : PALETTE.red, weight: 780,
+      fontSize: 43, color: isCorrect ? PALETTE.green : PALETTE.red, weight: 780,
     });
     updateText(this.scoreLabel, `SCORE ${score}`, { fontSize: 43, color: '#8eb6ff' });
     this.setAnswerButtonState(this.serifAnswer, {
@@ -462,17 +782,42 @@ class FontWarsApp {
     });
   }
 
+  showDuelFeedback({ chosen, correctAnswer, isCorrect, targetName, otherName, tip, focus, score }) {
+    this.duelPromptLabel.visible = false;
+    this.duelTargetName.visible = true;
+    this.anatomyTip.visible = true;
+    this.feedbackLabel.visible = true;
+    updateText(this.duelTargetName, `TARGET: ${targetName.toUpperCase()}`, {
+      fontSize: targetName.length > 17 ? 44 : 54, color: '#8eb6ff', weight: 760,
+    });
+    updateText(this.anatomyTip, `${focus.toUpperCase()}  ·  ${tip}`, {
+      fontSize: 31, color: '#baf2dd', weight: 520, lineHeight: 1.12,
+    });
+    updateText(this.feedbackLabel, `${isCorrect ? 'CORRECT' : 'NOT QUITE'}  ·  OTHER FACE: ${otherName.toUpperCase()}`, {
+      fontSize: 32, color: isCorrect ? PALETTE.green : PALETTE.red, weight: 760,
+    });
+    updateText(this.scoreLabel, `SCORE ${score}`, { fontSize: 43, color: '#8eb6ff' });
+    this.setAnswerButtonState(this.duelLeftAnswer, {
+      disabled: true,
+      color: correctAnswer === 'LEFT' ? 'selected' : (chosen === 'LEFT' ? 'incorrect' : 'disabled'),
+    });
+    this.setAnswerButtonState(this.duelRightAnswer, {
+      disabled: true,
+      color: correctAnswer === 'RIGHT' ? 'selected' : (chosen === 'RIGHT' ? 'incorrect' : 'disabled'),
+    });
+  }
+
   buildGameOverView() {
     const view = this.createView(ViewState.GAME_OVER, 2.9, 2.05, -2.35);
     this.addLabel(view, 'BATTLE COMPLETE', {
       width: 2.55, height: 0.27, fontSize: 83, color: PALETTE.white, weight: 780, x: 0, y: 0.72,
     });
     this.gameOverSummary = this.addLabel(view, '', {
-      width: 2.45, height: 0.32, fontSize: 68, color: '#bcd3ff', weight: 650, x: 0, y: 0.36,
+      width: 2.45, height: 0.43, fontSize: 68, color: '#bcd3ff', weight: 650, x: 0, y: 0.34,
     });
     this.highScoresLabel = this.addLabel(view, '', {
       width: 2.55, height: 0.48, fontSize: 39, color: PALETTE.muted, weight: 520,
-      x: 0, y: -0.12, lineHeight: 1.22,
+      x: 0, y: -0.17, lineHeight: 1.22,
     });
     this.makeSpatialButton(view, {
       label: 'PLAY AGAIN', x: -0.69, y: -0.72, width: 1.15, height: 0.28, fontSize: 47,
@@ -485,7 +830,7 @@ class FontWarsApp {
   }
 
   renderGameOver(record, highScores) {
-    updateText(this.gameOverSummary, `${record.score} POINTS\n${record.correct}/${record.total} CORRECT  ·  ${record.accuracy}%`, {
+    updateText(this.gameOverSummary, `${record.score} POINTS  ·  ${record.difficulty}\n${record.gameMode === 'DUEL' ? 'TYPEFACE DUEL' : 'CLASSIFICATION'}\n${record.correct}/${record.total} CORRECT  ·  ${record.accuracy}%`, {
       fontSize: 60, color: '#bcd3ff', weight: 650, lineHeight: 1.16,
     });
     const lines = highScores.slice(0, 3).map((item, index) => `${index + 1}.  ${item.score} PTS   ·   ${item.accuracy}%`);
@@ -497,27 +842,42 @@ class FontWarsApp {
   async loadFontFamily(name) {
     if (!name) return false;
     if (this.fontLoadPromises.has(name)) return this.fontLoadPromises.get(name);
-    const promise = new Promise((resolve) => {
-      const safeFamily = String(name).replace(/[\u0000-\u001f"<>]/gu, '').trim();
-      const query = new URLSearchParams({ family: `${safeFamily}:wght@400;500;700`, display: 'swap' });
-      const link = document.createElement('link');
-      link.rel = 'stylesheet';
-      link.href = `https://fonts.googleapis.com/css2?${query.toString()}`;
-      link.crossOrigin = 'anonymous';
-      link.onload = async () => {
-        try {
-          await document.fonts.load(`500 128px "${safeFamily}"`);
-          resolve(true);
-        } catch {
-          resolve(false);
-        }
-      };
-      link.onerror = () => resolve(false);
-      document.head.appendChild(link);
-      window.setTimeout(() => resolve(false), 1800);
-    });
+
+    const safeFamily = String(name).replace(/[\u0000-\u001f"<>]/gu, '').trim();
+    const query = new URLSearchParams({ family: safeFamily, display: 'swap' });
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = `https://fonts.googleapis.com/css2?${query.toString()}`;
+
+    let settle;
+    let settled = false;
+    const promise = new Promise((resolve) => { settle = resolve; });
+    const complete = (available) => {
+      if (settled) return;
+      settled = true;
+      window.clearTimeout(timeoutId);
+      if (!available) link.remove();
+      settle(Boolean(available));
+    };
+    const timeoutId = window.setTimeout(() => complete(false), 12000);
+
+    link.onload = async () => {
+      try {
+        const faces = await document.fonts.load(`400 128px "${safeFamily}"`, 'Hamburgefontsiv AaGgRr 0123456789');
+        const matchingFace = faces.some((face) => face.family.replace(/["']/gu, '') === safeFamily);
+        const browserConfirmed = document.fonts.check(`400 128px "${safeFamily}"`, 'Hamburgefontsiv');
+        complete(matchingFace && browserConfirmed);
+      } catch {
+        complete(false);
+      }
+    };
+    link.onerror = () => complete(false);
     this.fontLoadPromises.set(name, promise);
-    return promise;
+    document.head.appendChild(link);
+
+    const available = await promise;
+    if (!available) this.fontLoadPromises.delete(name);
+    return available;
   }
 
   playFeedback(correct) {

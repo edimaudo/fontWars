@@ -1,23 +1,58 @@
 # Font Wars
 
-Font Wars is a spatial typography training game built with Vite, Three.js and Meta's Immersive Web SDK (IWSDK). The experience is designed for Meta Quest and WebXR-compatible headsets. The application UI is rendered as 3D meshes; it does not create HTML buttons, forms, or HUD overlays. The browser DOM is limited to the renderer container and offscreen canvases used to texture 3D lettering.
+Font Wars is a spatial typography training game built with Vite, Three.js and Meta's Immersive Web SDK (IWSDK). It targets Meta Quest and compatible WebXR headsets. Application controls, learning content and gameplay are rendered as 3D scene objects. The DOM is limited to the renderer container and offscreen canvases used to create text textures.
 
-## Features implemented
+## Implemented
 
-- 3D landing, font library, settings, gameplay, and game-over views.
-- 10-round Serif vs. Sans-Serif classification sessions.
-- A mandatory 2.5-second anatomy-feedback pause after each answer.
-- A paginated, 400-entry library split into 200 Serif and 200 Sans-Serif entries.
-- Runtime loading of `/data/fonts.json` and `/data/words.json`.
-- IWSDK `RayInteractable` surfaces, with the custom `SpatialInteractionSystem` reacting to ECS `Hovered` and `Pressed` states for controller rays and hand-pinches.
-- Sound and haptic toggles, Easy / Standard / Expert difficulty settings, score, accuracy, and the five highest scores saved in browser storage.
+### Game modes
+
+- **Classification:** Ten rounds. The player identifies each typeface as Serif or Sans-Serif. Each session contains five of each category, with no repeated typeface.
+- **Typeface Duel:** Ten rounds. The player is shown a target family name and two specimens of the same word rendered in different typefaces, then selects A or B. The two candidate faces are paired from the same Serif/Sans-Serif category and challenge tier to avoid giving away the answer through category alone. No typeface repeats within a session.
+- Both modes verify font loading before play, lock the answer after selection, show the correct answer and an anatomy observation, then advance after a mandatory 2.5-second learning pause.
+- Easy uses Tier 1 typefaces and shorter specimens. Standard uses all tiers and varied words. Expert uses Tier 3 typefaces and mixed glyph specimens.
+- Correct-answer scoring is 75 / 100 / 150 points for Easy / Standard / Expert.
+- Scores are stored locally. The top five are kept separately by game mode and difficulty so scores from different scoring contexts are not mixed.
+- Players can exit to the main menu while a session is running or font verification is in progress.
+
+### Typeface catalogue and rendering
+
+- 400 catalogue records, split evenly into 200 Serif and 200 Sans-Serif families.
+- Font family names and source pages are recorded in `public/data/fonts.json`.
+- Each record has a unique anatomical observation prompt. These are visual inspection exercises, not expert-verified statements of exclusive characteristics for every family.
+- Font loading uses the Google Fonts CSS2 API. A family is not used in a game round until the browser confirms that the requested face loaded for the specimen glyph set.
+- There is no silent Georgia/Arial substitution when a requested face is unavailable. The app reports the loading failure instead.
+- Family-specific font licensing is not assumed to be identical. Review the relevant family metadata and license in the upstream Google Fonts repository before redistributing font files.
+
+### Spatial library
+
+- Six typeface cards per page.
+- All / Serif / Sans-Serif catalogue filtering.
+- Cards render a specimen in the selected family's actual font after the family has loaded.
+- Detail panel with family name, classification, challenge tier and anatomical observation.
+- Glyph inspection presets for `AaGg`, `R Q &`, and `0123456789`.
+
+### Spatial interaction and screens
+
+- 3D landing, library, settings, classification / Duel gameplay and game-over views.
+- Controller-ray and hand-input interaction via IWSDK `RayInteractable`, `Hovered` and `Pressed` components.
+- Default, hover, selected/correct, incorrect and disabled button states.
+- Sound and haptic settings.
 - Vercel static deployment configuration.
+
+## Important runtime requirements and limitations
+
+Google Fonts are delivered at runtime and are not bundled in this repository. Internet access is required for the exact families to render. If a family cannot be loaded and verified, it is excluded from the session rather than substituted with another typeface.
+
+The committed data validator confirms the catalogue structure (400 unique records, 200 records per category, unique IDs/names and unique observation prompts). **It does not prove that all 400 family names are currently available from Google Fonts.** Run the remote verification command before release and resolve any failed families. The observation prompts also require a typography subject-matter review before being presented as authoritative family-specific descriptions.
+
+The full Vite production build and headset runtime have not been verified in this environment because package registry and Google Fonts network access were unavailable. Node-level game logic and dataset validation can run without installing the browser dependencies.
 
 ## Requirements
 
-- Node.js `22.12+` (Node 22 is recommended for the current IWSDK toolchain).
+- Node.js 22.12+ (Node 22 is recommended for the current IWSDK toolchain).
 - npm.
-- For the immersive experience: Meta Quest or another WebXR-compatible headset and an HTTPS origin. A headset is optional for initial development because the IWSDK dev environment includes XR emulation.
+- For immersive use: Meta Quest or another WebXR-compatible headset and an HTTPS origin.
+- Internet access for Google Fonts loading and remote family verification.
 
 ## Run locally
 
@@ -26,12 +61,43 @@ npm install
 npm run dev
 ```
 
-The IWSDK-managed dev command launches Vite with HTTPS and XR emulation. Use the runtime URL reported by the dev command. On desktop, use the IWSDK Enter XR / emulator controls and select with the emulated controller trigger. In a Quest browser, open the HTTPS network URL from a device on the same network and enter XR.
+The IWSDK-managed development command launches Vite with XR emulation. Use the runtime URL reported by the development command. On desktop, use the IWSDK Enter XR / emulator controls and select with the emulated controller trigger. In a Quest browser, open the HTTPS network URL from a device on the same network and enter XR.
 
 For a plain Vite runtime without the managed emulator, use:
 
 ```bash
 npm run dev:runtime
+```
+
+## Validation and tests
+
+Validate the committed JSON datasets:
+
+```bash
+npm run data:validate
+```
+
+Run the automated game-logic tests:
+
+```bash
+npm test
+```
+
+The tests cover both game modes, all three difficulty levels, unique font selection, paired-font constraints, scoring, answer locking, learning-pause timing, round advancement, and Duel session completion / score persistence.
+
+Verify all 400 family names against the Google Fonts CSS2 API and check that the requested Latin specimen glyph set is returned:
+
+```bash
+npm run fonts:verify
+```
+
+This command requires internet access. It writes `public/data/font-verification.json` with verification time, counts, and per-family results. Run it before release and resolve failed entries. Browser-level loading is also verified at runtime before a typeface is included in a session.
+
+Regenerate datasets after changing the curated names or prompts:
+
+```bash
+npm run data:generate
+npm run data:validate
 ```
 
 ## Build and deploy
@@ -41,29 +107,7 @@ npm run build
 npm run preview
 ```
 
-Vercel uses `npm run build` and the `dist` output directory through `vercel.json`. The JSON datasets stay under `public/data/`, so Vite copies them as runtime-addressable static assets. Dataset loading is base-path aware for deployments under a subpath.
-
-## Data validation
-
-`public/data/fonts.json` contains exactly 400 entries, split evenly across `Serif` and `Sans-Serif`. `public/data/words.json` contains 861 vocabulary items. Validate the committed datasets with:
-
-```bash
-npm run data:validate
-```
-
-Regenerate both datasets with:
-
-```bash
-npm run data:generate
-```
-
-## Typography specimen loading
-
-The game attempts to load each selected family from Google Fonts at runtime and redraws the specimen when the font is ready. If a family is unavailable or the headset is offline, the specimen uses a category-appropriate system fallback so the round remains playable. This external font load is only for rendering specimen lettering; it is not required for the game data or score tracking.
-
-## Controls and gameplay
-
-All app actions are 3D spatial surfaces and use the IWSDK input pipeline. No app-level mouse-click or touch listeners are registered. On a physical headset, aim with an XR controller and select with its trigger, or use supported hand tracking and pinch. Every session contains 10 rounds. The game reveals the classification and anatomical tip after the player answers, keeps the feedback visible for 2.5 seconds, and then advances automatically.
+Vercel uses `npm run build` and the `dist` output directory through `vercel.json`. The JSON datasets remain in `public/data/` and are served as runtime assets.
 
 ## Project layout
 
@@ -78,12 +122,17 @@ fontWars/
 │   │   ├── fonts.json
 │   │   └── words.json
 │   └── scenes/main.iwsdk.scene.json
-├── scripts/generate-data.py
-└── src/
-    ├── FontGameSystem.js
-    ├── SpatialInteractionSystem.js
-    ├── SpatialViewStateManager.js
-    └── index.js
+├── scripts/
+│   ├── generate-data.py
+│   ├── validate-data.py
+│   └── verify-fonts.mjs
+├── src/
+│   ├── FontGameSystem.js
+│   ├── SpatialInteractionSystem.js
+│   ├── SpatialViewStateManager.js
+│   └── index.js
+└── tests/
+    └── FontGameSystem.test.js
 ```
 
 ## SDK references
